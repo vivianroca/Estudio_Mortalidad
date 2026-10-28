@@ -1,0 +1,55 @@
+# Entornos y cachés
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+.Rhistory
+# Temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+~$*
+*.log
+.quarto/
+# Datos locales (reservados para gestión posterior con DVC)
+/data/raw_data/
+/data/processed/
+# Material externo y libros de trabajo; conservar solo catálogo de etiquetas
+/catalog/*
+!/catalog/catalogo_cie10.csv
+# Dashboard con datos procesados incrustados
+/dashboards/ds_analisis1.qmd
+/dashboards/*.html
+# Exportaciones y recursos generados
+/docu/*.html
+/docu/*_files/
+/inspeccion_ine.txt
+# Reportes: publicar solo metadatos estructurales pequeños
+/reports/*
+!/reports/resumen_hojas.txt
+!/reports/inventario_hojas.txt
+!/reports/comparacion_hojas.csv
+# Credenciales y configuración local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*
+secrets*
+*.kdbx
+.aws/
+.ssh/
+.codex/
+.agents/
+# Futura caché y configuración privada de DVC; no inicializar todavía
+.dvc/cache/
+.dvc/tmp/
+.dvc/config.local
