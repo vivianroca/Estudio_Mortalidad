@@ -1,0 +1,12 @@
+---
+title: "Dashboards de mortalidad en Guatemala"
+format: html
+---
+
+Investigación descriptiva de las defunciones en Guatemala durante **2009–2024**, basada en cuadros oficiales del Instituto Nacional de Estadística (INE).
+
+## Dashboards disponibles
+
+- [Mortalidad en Guatemala · 2009–2024](dashboards/ds_analisis1.qmd): evolución anual, causas de muerte, distribución territorial y edad.
+
+Las visualizaciones muestran una instantánea de datos agregados. Los archivos originales y los datasets de procesamiento no se distribuyen con este sitio. Los resultados son descriptivos y no establecen relaciones causales.

@@ -16,18 +16,16 @@ __pycache__/
 ~$*
 *.log
 .quarto/
+# Fuentes Quarto y salida docs/ se versionan; excluir solo intermediarios
+/.quarto-preview/
+
 # Datos locales (reservados para gestión posterior con DVC)
 /data/raw_data/
 /data/processed/
 # Material externo y libros de trabajo; conservar solo catálogo de etiquetas
 /catalog/*
 !/catalog/catalogo_cie10.csv
-# Dashboard con datos procesados incrustados
-/dashboards/ds_analisis1.qmd
-/dashboards/*.html
-# Exportaciones y recursos generados
-/docu/*.html
-/docu/*_files/
+# Inspección local del portal
 /inspeccion_ine.txt
 # Reportes: publicar solo metadatos estructurales pequeños
 /reports/*
@@ -53,3 +51,6 @@ secrets*
 .dvc/cache/
 .dvc/tmp/
 .dvc/config.local
+
+/.quarto/
+**/*.quarto_ipynb

@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - dashboards/*.qmd
+  resources:
+    - "!data/**"
+    - "!catalog/**"
+    - "!reports/**"
+    - "!docu/**"
+    - "!src/**"
+    - "!dashboards/*.html"
+    - "!dashboards/*.py"
+    - "!.venv/**"
+
+website:
+  title: "Estudio de mortalidad en Guatemala"
+  site-url: "https://vivianroca.github.io/Estudio_Mortalidad/"
+  search: false
+
+lang: es
+execute:
+  enabled: false

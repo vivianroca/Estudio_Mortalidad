@@ -9,15 +9,15 @@ Instituto Nacional de Estadística de Guatemala ([INE](https://www.ine.gob.gt/))
 ## Estructura
 
 - `src/`: descarga, auditorías y transformación de nueve indicadores.
-- `dashboards/preparar_ds_analisis1.py`: preparación y validación de datos para el dashboard local.
-- `docu/`: definición de indicadores y propuesta de modelo de datos en Markdown, Quarto y Mermaid.
+- `dashboards/`: preparación y validación del dashboard, fuente Quarto (`.qmd`) y HTML final con una instantánea de datos agregados incrustada.
+- `docu/`: definición de indicadores y propuesta de modelo de datos en Markdown, Quarto y Mermaid, junto con los HTML finales y sus recursos.
 - `catalog/catalogo_cie10.csv`: catálogo de códigos y descripciones, sin conteos de defunciones.
 - `reports/`: inventarios pequeños de hojas y comparación estructural.
 - `data/manifiesto_defunciones.csv`: metadatos de procedencia y descarga.
 - `data/raw_data/`: originales del INE, excluidos de Git.
 - `data/processed/`: resultados derivados, excluidos de Git.
 
-También se excluyen libros de trabajo de revisión, reportes de validación con conteos, el PDF de referencia y las exportaciones HTML. El dashboard `.qmd` contiene una instantánea de datos procesados y permanece local.
+Se excluyen libros de trabajo de revisión, reportes de validación con conteos y el PDF de referencia. Se publican los Quarto y HTML finales; el dashboard incluye una instantánea de datos agregados procesados, mientras los datasets de `data/` permanecen excluidos.
 
 ## Entorno y ejecución
 
@@ -54,14 +54,26 @@ Las auditorías regeneran metadatos en `reports/estructura/`, necesarios para lo
 
 IND-007 requiere además los libros locales de revisión aprobada `reports/estructura/propuesta_cat_cie10.xlsx` (hoja `rev_final`) y `catalog/posible_cat.xlsx` (hoja `Revision_IND007`). No se distribuyen en este repositorio. Una vez disponibles, ejecutar `python src/transformar_ind007.py`. Se excluye 2011 solo de este indicador por una inconsistencia del original; su ausencia no significa cero defunciones.
 
-El dashboard requiere los CSV de IND-002, IND-004 e IND-006, el catálogo y el archivo local `dashboards/ds_analisis1.qmd`. Con esos insumos, `python dashboards/preparar_ds_analisis1.py` actualiza la instantánea incrustada. Para renderizar los documentos `.qmd` se necesita Quarto, instalado por separado.
+El dashboard requiere los CSV de IND-002, IND-004 e IND-006, el catálogo y la fuente versionada `dashboards/ds_analisis1.qmd`. Con esos insumos, `python dashboards/preparar_ds_analisis1.py` actualiza la instantánea incrustada. Para renderizar los documentos `.qmd` se necesita Quarto, instalado por separado.
 
 ## Estado actual y reproducibilidad
 
 Proyecto de investigación en desarrollo: nueve transformadores, auditorías, validaciones locales, propuesta de modelo y dashboard exploratorio. Consultar `docu/indicadores_definicion.md` para cobertura y advertencias. Los resultados no constituyen inferencias causales.
 
-Git distribuye código, documentación y metadatos; los datos y ciertos insumos de revisión permanecen locales. Por ello, clonar el repositorio por sí solo no reproduce IND-007 ni el dashboard completo. Los scripts de procesamiento se conservan sin cambios.
+Git distribuye código, documentación, metadatos y los Quarto y HTML finales. El HTML del dashboard permite consultar la instantánea publicada sin recalcularla; descargar el repositorio y abrir `dashboards/ds_analisis1.html` en un navegador. Los HTML de `docu/` requieren conservar sus carpetas de recursos `*_files/`. Los datasets y ciertos insumos de revisión permanecen locales: clonar el repositorio por sí solo no permite recalcular IND-007 ni actualizar los datos del dashboard. Los scripts de procesamiento se conservan sin cambios.
 
 ## Preparación para DVC
 
 DVC **todavía no está inicializado** ni se incluye como dependencia. Las rutas de originales y procesados ya están separadas y excluidas de Git. En una etapa posterior se podrá inicializar DVC, acordar el almacenamiento remoto y versionar datos e insumos de revisión mediante archivos `.dvc` y un flujo reproducible. La caché y la configuración privada de DVC están previstas en `.gitignore`; las futuras referencias `.dvc` podrán incluirse en Git. No guardar credenciales en el repositorio.
+
+## Sitio web con GitHub Pages
+
+La configuración `_quarto.yml` conserva las fuentes en `dashboards/` y renderiza `index.qmd` junto con los dashboards a `docs/`:
+
+```bash
+quarto render
+```
+
+Se genera `docs/index.html` y cada dashboard en `docs/dashboards/`, junto con los recursos necesarios. Los enlaces internos son relativos para funcionar bajo `/Estudio_Mortalidad/`. Los `.qmd` originales y los scripts no se alteran durante esta preparación; el renderizado utiliza la instantánea incrustada y no ejecuta procesamiento de datos.
+
+Los archivos de `docs/` se versionan en `dev`. Para publicar sin fusionar a `main`, configurar manualmente GitHub Pages con la rama `dev` y la carpeta `/docs`. La dirección prevista es <https://vivianroca.github.io/Estudio_Mortalidad/>; requiere activar Pages en GitHub. La preparación local no cambia esa configuración remota.
