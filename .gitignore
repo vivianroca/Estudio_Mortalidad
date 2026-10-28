@@ -22,12 +22,7 @@ __pycache__/
 # Material externo y libros de trabajo; conservar solo catálogo de etiquetas
 /catalog/*
 !/catalog/catalogo_cie10.csv
-# Dashboard con datos procesados incrustados
-/dashboards/ds_analisis1.qmd
-/dashboards/*.html
-# Exportaciones y recursos generados
-/docu/*.html
-/docu/*_files/
+# Inspección local del portal
 /inspeccion_ine.txt
 # Reportes: publicar solo metadatos estructurales pequeños
 /reports/*
