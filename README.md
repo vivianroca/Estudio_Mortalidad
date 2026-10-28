@@ -65,3 +65,15 @@ Git distribuye código, documentación, metadatos y los Quarto y HTML finales. E
 ## Preparación para DVC
 
 DVC **todavía no está inicializado** ni se incluye como dependencia. Las rutas de originales y procesados ya están separadas y excluidas de Git. En una etapa posterior se podrá inicializar DVC, acordar el almacenamiento remoto y versionar datos e insumos de revisión mediante archivos `.dvc` y un flujo reproducible. La caché y la configuración privada de DVC están previstas en `.gitignore`; las futuras referencias `.dvc` podrán incluirse en Git. No guardar credenciales en el repositorio.
+
+## Sitio web con GitHub Pages
+
+La configuración `_quarto.yml` conserva las fuentes en `dashboards/` y renderiza `index.qmd` junto con los dashboards a `docs/`:
+
+```bash
+quarto render
+```
+
+Se genera `docs/index.html` y cada dashboard en `docs/dashboards/`, junto con los recursos necesarios. Los enlaces internos son relativos para funcionar bajo `/Estudio_Mortalidad/`. Los `.qmd` originales y los scripts no se alteran durante esta preparación; el renderizado utiliza la instantánea incrustada y no ejecuta procesamiento de datos.
+
+Los archivos de `docs/` se versionan en `dev`. Para publicar sin fusionar a `main`, configurar manualmente GitHub Pages con la rama `dev` y la carpeta `/docs`. La dirección prevista es <https://vivianroca.github.io/Estudio_Mortalidad/>; requiere activar Pages en GitHub. La preparación local no cambia esa configuración remota.
