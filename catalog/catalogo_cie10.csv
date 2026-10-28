@@ -1,0 +1,169 @@
+﻿codigo,descripcion,cie10
+A04,Otras infecciones intestinales bacterianas,1
+A09,Otras gastroenteritis y colitis de origen infeccioso y no especificado,1
+A09X,Diarrea y gastroenteritis de presunto origen infeccioso,1
+A16,"Tuberculosis respiratoria, no confirmada bacteriológica o histológicamente",1
+A41,Otras sepsis,1
+A90,Dengue,1
+A90X,Fiebre del dengue [dengue clásico],1
+A91X,Fiebre del dengue hemorrágico,1
+B01,Varicela,1
+B18,Hepatitis viral crónica,1
+B20,"Enfermedad por virus de la inmunodeficiencia humana [VIH], resultante en enfermedades infecciosas y parasitarias",1
+B24X,"Enfermedad por virus de la inmunodeficiencia humana [VIH], sin otra especificación",1
+B59X,Neumocistosis,1
+B77,Ascariasis,1
+B82,"Parasitosis intestinal, sin otra especificación",1
+C16,Tumor maligno del estómago,1
+C18,Tumor maligno del colon,1
+C22,Tumor maligno del hígado y de las vías biliares intrahepáticas,1
+C25,Tumor maligno del páncreas,1
+C34,Tumor maligno de los bronquios y del pulmón,1
+C49,Tumor maligno de otros tejidos conjuntivos y de tejidos blandos,1
+C50,Tumor maligno de la mama,1
+C53,Tumor maligno del cuello del útero,1
+C55X,"Tumor maligno del útero, parte no especificada",1
+C61X,Tumor maligno de la próstata,1
+C69,Tumor maligno del ojo y sus anexos,1
+C71,Tumor maligno del encéfalo,1
+C80X,Tumor maligno de sitios no especificados,1
+C85,Linfoma no Hodgkin de otro tipo y el no especificado,1
+C91,Leucemia linfoide,1
+C92,Leucemia mieloide,1
+C95,Leucemia de células de tipo no especificado,1
+COVID,COVID,1
+D43,Tumor de comportamiento incierto o desconocido del encéfalo y del sistema nervioso central,1
+D45X,Policitemia vera,1
+D53,Otras anemias nutricionales,0
+D61,Otras anemias aplásticas,1
+D64,Otras anemias,1
+D65X,Coagulación intravascular diseminada [síndrome de desfibrinación],1
+D69,Púrpura y otras afecciones hemorrágicas,1
+E10,Diabetes mellitus insulinodependiente,1
+E11,Diabetes mellitus no insulinodependiente,1
+E14,"Diabetes mellitus, no especificada",1
+E34,Otros trastornos endocrinos,1
+E43X,"Desnutrición proteicocalórica severa, no especificada",0
+E44,Desnutrición proteicocalórica de grado moderado y leve,1
+E46X,"Desnutrición proteicocalórica, no especificada",1
+E84,Fibrosis quística,1
+E85,Amiloidosis,1
+E86X,Depleción del volumen,1
+E87,"Otros trastornos de los líquidos, de los electrólitos y del equilibrio ácido-básico",1
+F10,Trastornos mentales y del comportamiento debidos al uso de alcohol,1
+G00,"Meningitis bacteriana, no clasificada en otra parte",0
+G03,Meningitis debida a otras causas y a las no especificadas,1
+G04,"Encefalitis, mielitis y encefalomielitis",1
+G40,Epilepsia,1
+G41,Estado de mal epiléptico,1
+G80,Parálisis cerebral,1
+G83,Otros síndromes paralíticos,1
+G91,Hidrocéfalo,1
+G93,Otros trastornos del encéfalo,1
+I10X,Hipertensión esencial (primaria),1
+I11,Enfermedad cardíaca hipertensiva,1
+I21,Infarto agudo del miocardio,1
+I25,Enfermedad isquémica crónica del corazón,1
+I26,Embolia pulmonar,0
+I27,Otras enfermedades cardiopulmonares,1
+I31,Otras enfermedades del pericardio,0
+I49,Otras arritmias cardiacas,1
+I50,Insuficiencia cardíaca,1
+I51,Complicaciones y descripciones mal definidas de enfermedad cardíaca,1
+I61,Hemorragia intraencefálica,1
+I62,Otras hemorragias intracraneales no traumáticas,1
+I64X,"Accidente vascular encefálico agudo, no especificado como hemorrágico o isquémico",1
+I67,Otras enfermedades cerebrovasculares,1
+I99X,Otros trastornos y los no especificados del sistema circulatorio,1
+J15,"Neumonía bacteriana, no clasificada en otra parte",1
+J18,"Neumonía, organismo no especificado",1
+J20,Bronquitis aguda,1
+J44,Otras enfermedades pulmonares obstructivas crónicas,1
+J45,Asma,1
+J69,Neumonitis debida a sólidos y líquidos,1
+J70,Afecciones respiratorias debidas a otros agentes externos,1
+J80X,Síndrome de dificultad respiratoria del adulto,1
+J81X,Edema pulmonar,1
+J93,Neumotórax,1
+J96,"Insuficiencia respiratoria, no clasificada en otra parte",1
+J98,Otros trastornos respiratorios,1
+K25,Úlcera gástrica,1
+K35,Apendicitis aguda,1
+K44,Hernia diafragmática,1
+K56,Íleo paralítico y obstrucción intestinal sin hernia,1
+K65,Peritonitis,1
+K70,Enfermedad alcohólica del hígado,1
+K72,"Insuficiencia hepática, no clasificada en otra parte",1
+K74,Fibrosis y cirrosis del hígado,1
+K85,Pancreatitis aguda,1
+K92,Otras enfermedades del sistema digestivo,1
+M19,Otras artrosis,1
+N17,Insuficiencia renal aguda,1
+N18,Enfermedad renal crónica,1
+N19X,Insuficiencia renal no especificada,1
+OTRAS,Otras causas,0
+P01,Feto y recién nacido afectados por complicaciones maternas del embarazo,1
+P02,"Feto y recién nacido afectado por complicaciones de la placenta, del cordón umbilical y de las membranas",1
+P05,Retardo del crecimiento fetal y desnutrición fetal,1
+P07,"Trastornos relacionados con duración corta de la gestación y con bajo peso al nacer, no clasificados en otra parte",1
+P15,Otros traumatismos del nacimiento,1
+P20,Hipoxia intrauterina,0
+P21,Asfixia del nacimiento,1
+P22,Dificultad respiratoria del recién nacido,1
+P23,Neumonía congénita,1
+P24,Síndromes de aspiración neonatal,1
+P25,"Enfisema intersticial y afecciones relacionadas, originadas en el período perinatal",1
+P26,Hemorragia pulmonar originada en el período perinatal,1
+P27,Enfermedad respiratoria crónica originada en el período perinatal,1
+P28,"Otros problemas respiratorios del recién nacido, originados en el período perinatal",1
+P29,Trastornos cardiovasculares originados en el período perinatal,1
+P36,Sepsis bacteriana del recién nacido,1
+P52,Hemorragia intracraneal no traumática del feto y del recién nacido,1
+P54,Otras hemorragias neonatales,1
+P60X,Coagulación intravascular diseminada en el feto y el recién nacido,1
+P77X,Enterocolitis necrotizante del feto y del recién nacido,1
+P78,Otros trastornos perinatales del sistema digestivo,1
+P81,Otras alteraciones de la regulación de la temperatura en el recién nacido,1
+P83,Otras afecciones de la piel especificas del feto y del recién nacido,1
+P96,Otras afecciones originadas en el período perinatal,1
+Q00,Anencefalia y malformaciones congénitas similares,1
+Q02X,Microcefalia,1
+Q04,Otras malformaciones congénitas del encéfalo,1
+Q05,Espina bífida,1
+Q24,Otras malformaciones congénitas del corazón,1
+Q33,Malformaciones congénitas del pulmón,1
+Q60,Agenesia renal y otras malformaciones hipoplásicas del riñón,1
+Q79,"Malformaciones congénitas del sistema osteomuscular, no clasificadas en otra parte",1
+Q89,"Otras malformaciones congénitas, no clasificadas en otra parte",1
+Q90,Síndrome de Down,1
+Q91,Síndrome de Edwards y síndrome  de Patau,1
+R00–R99,"Síntomas, signos y hallazgos anormales clínicos y de laboratorio, no clasificados en otra parte",1
+T98,Secuelas de otros efectos y los no especificados de causas externas,0
+V89,"Accidente de vehículo de motor o sin motor, tipo de vehículo no especificado",1
+W26,"Contacto traumático con cuchillo, espada, daga o puñal",1
+W34,"Disparo de otras armas de fuego, y las no especificadas",1
+W74,Ahogamiento y sumersión no especificados,1
+W76,Otros estrangulamientos y ahorcamientos accidentales,1
+W77,"Obstrucción de la respiración debida a hundimiento, caída de tierra u otras sustancias",0
+W80,Inhalación e ingestión de otros objetos que causan obstrucción de las vías respiratorias,1
+W84,Obstrucción no especificada de la respiración,1
+X09,"Exposición a humos, fuegos o llamas no especificados",1
+X45,"Envenenamiento accidental por, y exposición al alcohol",1
+X48,"Envenenamiento accidental por, y exposición a plaguicidas",1
+X49,"Envenenamiento accidental por, y exposición a otros productos químicos y sustancias nocivas, y los no especificados",1
+X59,Exposición a factores no especificados,1
+X68,"Envenenamiento autoinfligido intencionalmente por, y exposición a plaguicidas",1
+X69,"Envenenamiento autoinfligido intencionalmente por, y exposición a otros productos químicos y sustancias nocivas, y los no especificados",1
+X70,"Lesión autoinfligida intencionalmente por ahorcamiento, estrangulamiento o sofocación",1
+X91,"Agresión por ahorcamiento, estrangulamiento y sofocación",1
+X95,"Agresión con disparo de otras armas de fuego, y las no especificadas",1
+X99,Agresión con objeto cortante,1
+Y06,Negligencia y abandono,1
+Y09,Agresión por medios no especificados,1
+Y18,"Envenenamiento por, y exposición a plaguicidas, de intención no determinada",1
+Y19,"Envenenamiento por, y exposición a otros productos químicos y sustancias nocivas, y los no especificados, de intención no determinada",1
+Y20,"Ahorcamiento, estrangulamiento y sofocación, de intención no determinada",1
+Y21,"Ahogamiento y sumersión, de intención no determinada",0
+Y24,"Disparo de otras armas de fuego, y las no especificadas, de intención no determinada",0
+Y26,"Exposición al humo, fuego y llamas, de intención no determinada",1
+Y45,"Efectos adversos de drogas analgésicas, antipiréticas y antiinflamatorias",1

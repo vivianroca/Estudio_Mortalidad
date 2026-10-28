@@ -1,0 +1,355 @@
+AÑO: 2009
+Archivo: 2009.xls
+Total de hojas: 15
+
+1. Contenido
+2. Año ocurr. y depto. residencia
+3. Depto. ocurrencia y residencia
+4. Depto. sexo y edades simples
+5. Depto. sexo y grupos de edad
+6. Depto. sexo estado civil y edad
+7. Edad sexo y causas de muerte
+8. Depto. sexo y causas de muerte
+9. Tipo certificacion, depto y mun
+10. Tipo de asistencia, depto y mun
+11. Lugar ocurrencia, depto y mun
+12. Infantil neonatal post neonatal
+13. Neonatal sexo y causa de muerte
+14. Post neonatal sexo y causas
+15. Mes y día de ocurrencia
+
+AÑO: 2010
+Archivo: 2010.xls
+Total de hojas: 17
+
+1. Contenido
+2. Año ocurr. y depto. residencia
+3. Depto. ocurrencia y residencia
+4. Depto. sexo y edades simples
+5. Depto. sexo y grupos de edad
+6. Depto. sexo estado civil y edad
+7. Edad, sexo y causas de muerte
+8. Depto., sexo y causas de muerte
+9. Tipo certificación depto. y mun
+10. Tipo de asistencia, depto y mun
+11. Lugar ocurrencia, depto y mun
+12. Infantil neonatal post neonatal
+13. Neonatal sexo y causa de muerte
+14. Post neonatal sexo y causas
+15. Mes ocurrencia y día
+16. Área geo. etnia y depto.
+17. Causa externa, sexo y depto.
+
+AÑO: 2011
+Archivo: 2011.xls
+Total de hojas: 16
+
+1. Contenido
+2. Depto. ocurrencia y residencia
+3. Depto. sexo y edades simples
+4. Depto. sexo y grupos de edad
+5. Depto. sexo estado civil y edad
+6. Edad sexo y causas de muerte
+7. Depto. sexo y causas de muerte
+8. Tipo certificación depto. y mun
+9. Tipo de asistencia depto y mun
+10. Lugar ocurrencia depto y mun
+11. Infantil neonatal post neonatal
+12. Neonatal sexo y causa de muerte
+13. Post neonatal sexo y causas
+14. Mes ocurrencia y dia
+15. Área geo. etnia y depto
+16. Causa externa sexo y depto.
+
+AÑO: 2012
+Archivo: 2012.xls
+Total de hojas: 16
+
+1. Contenido
+2. Depto. ocurrencia y residencia
+3. Depto. sexo y edades simples
+4. Depto. sexo y grupos de edad
+5. Depto. sexo estado civil y edad
+6. Edad sexo y causas de muerte
+7. Depto. sexo y causas de muerte
+8. Tipo certificación depto. y mun
+9. Tipo de asistencia depto y mun
+10. Lugar ocurrencia depto y mun
+11. Infantil neonatal post neonatal
+12. Neonatal sexo y causa de muerte
+13. Post neonatal sexo y causas
+14. Mes ocurrencia y dia
+15. Área geo. etnia y depto
+16. Causa externa sexo y depto.
+
+AÑO: 2013
+Archivo: 2013.xls
+Total de hojas: 16
+
+1. Contenido
+2. Depto. ocurrencia y residencia
+3. Depto. sexo y edades simples
+4. Depto. sexo y grupos de edad
+5. Depto. sexo estado civil y edad
+6. Edad sexo y causas de muerte
+7. Depto. sexo y causas de muerte
+8. Tipo certificación depto. y mun
+9. Tipo de asistencia depto y mun
+10. Lugar ocurrencia depto y mun
+11. Infantil neonatal post neonatal
+12. Neonatal sexo y causa de muerte
+13. Post neonatal sexo y causas
+14. Mes ocurrencia y dia
+15. Área geo. pueblo y depto
+16. Causa externa sexo y depto.
+
+AÑO: 2014
+Archivo: 2014.xlsx
+Total de hojas: 16
+
+1. Contenido
+2. Depto. ocurrencia y residencia
+3. Depto. sexo y edades simples
+4. Depto. sexo y grupos de edad
+5. Depto. sexo estado civil y edad
+6. Edad sexo y causas de muerte
+7. Depto. sexo y causas de muerte
+8. Tipo certificación depto. y mun
+9. Tipo de asistencia depto y mun
+10. Lugar ocurrencia depto y mun
+11. Infantil neonatal post neonatal
+12. Neonatal sexo y causa de muerte
+13. Post neonatal sexo y causas
+14. Mes ocurrencia y dia
+15. Área geo. pueblo y depto
+16. Causa externa sexo y depto.
+
+AÑO: 2015
+Archivo: 2015.xlsx
+Total de hojas: 16
+
+1. Contenido
+2. Depto. ocurrencia y residencia
+3. Depto. sexo y edades simples
+4. Depto. sexo y grupos de edad
+5. Depto. sexo estado civil y edad
+6. Edad sexo y causas de muerte
+7. Depto. sexo y causas de muerte
+8. Tipo certificación depto. y mun
+9. Tipo de asistencia depto y mun
+10. Lugar ocurrencia depto y mun
+11. Infantil neonatal post neonatal
+12. Neonatal sexo y causa de muerte
+13. Post neonatal sexo y causas
+14. Mes ocurrencia y dia
+15. Área geo. pueblo y depto
+16. Causa externa sexo y depto.
+
+AÑO: 2016
+Archivo: 2016.xlsx
+Total de hojas: 16
+
+1. Contenido
+2. Depto. ocurrencia y residencia
+3. Depto. sexo y edades simples
+4. Depto. sexo y grupos de edad
+5. Depto. sexo estado civil y edad
+6. Edad sexo y causas de muerte
+7. Depto. sexo y causas de muerte
+8. Tipo certificación depto. y mun
+9. Tipo de asistencia depto y mun
+10. Lugar ocurrencia depto y mun
+11. Infantil neonatal post neonatal
+12. Neonatal sexo y causa de muerte
+13. Post neonatal sexo y causas
+14. Mes ocurrencia y dia
+15. Área geo. pueblo y depto
+16. Causa externa sexo y depto.
+
+AÑO: 2017
+Archivo: 2017.xlsx
+Total de hojas: 16
+
+1. Contenido
+2. Depto. ocurrencia y residencia
+3. Depto. sexo y edades simples
+4. Depto. sexo y grupos de edad
+5. Depto. sexo estado civil y edad
+6. Edad sexo y causas de muerte
+7. Depto. sexo y causas de muerte
+8. Tipo certificación depto. y mun
+9. Tipo de asistencia depto y mun
+10. Lugar ocurrencia depto y mun
+11. Infantil neonatal post neonatal
+12. Neonatal sexo y causa de muerte
+13. Post neonatal sexo y causas
+14. Mes ocurrencia y dia
+15. Área geo. pueblo y depto
+16. Causa externa sexo y depto.
+
+AÑO: 2018
+Archivo: 2018.xlsx
+Total de hojas: 16
+
+1. Contenido
+2. Depto. ocurrencia y residencia
+3. Depto. sexo y edades simples
+4. Depto. sexo y grupos de edad
+5. Depto. sexo estado civil y edad
+6. Edad sexo y causas de muerte
+7. Depto. sexo y causas de muerte
+8. Tipo certificación depto. y mun
+9. Tipo de asistencia depto y mun
+10. Lugar ocurrencia depto y mun
+11. Infantil neonatal post neonatal
+12. Neonatal sexo y causa de muerte
+13. Post neonatal sexo y causas
+14. Mes ocurrencia y dia
+15. Pueblo pertenencia y depto
+16. Causa externa sexo y depto.
+
+AÑO: 2019
+Archivo: 2019.xlsx
+Total de hojas: 16
+
+1. Contenido
+2. Depto. ocurrencia y residencia
+3. Depto. sexo y edades simples
+4. Depto. sexo y grupos de edad
+5. Depto. sexo estado civil y edad
+6. Edad sexo y causas de muerte
+7. Depto. sexo y causas de muerte
+8. Tipo certificación depto. y mun
+9. Tipo de asistencia depto y mun
+10. Lugar ocurrencia depto y mun
+11. Infantil neonatal post neonatal
+12. Neonatal sexo y causa de muerte
+13. Post neonatal sexo y causas
+14. Mes ocurrencia y dia
+15. Pueblo pertenencia y depto
+16. Causa externa sexo y depto.
+
+AÑO: 2020
+Archivo: 2020.xlsx
+Total de hojas: 19
+
+1. Contenido
+2. Presentación
+3. Depto. ocurrencia y residencia
+4. Depto. sexo y edades simples
+5. Depto. sexo y grupos de edad
+6. Depto. sexo estado civil y edad
+7. Edad sexo y causas de muerte
+8. Depto. sexo y causas de muerte
+9. Tipo certificación depto. y mun
+10. Tipo de asistencia depto y mun
+11. Lugar ocurrencia depto y mun
+12. Infantil neonatal post neonatal
+13. Neonatal sexo y causa de muerte
+14. Post neonatal sexo y causas
+15. Mes ocurrencia y dia
+16. Pueblo pertenencia y depto
+17. Causa externa sexo y depto.
+18. Grupo de edad y COVID-19, sexo
+19. Depto. COVI-19 y sexo
+
+AÑO: 2021
+Archivo: 2021.xlsx
+Total de hojas: 19
+
+1. Contenido
+2. Presentación
+3. 1 Depto ocurrencia y residencia
+4. 2 Depto. sexo y edades simples
+5. 3 Depto. sexo y grupos de edad
+6. 4 Depto sexo estado civil edad
+7. 5 Edad sexo y causas de muerte
+8. 6 Depto sexo y causas de muerte
+9. 7 Tipo certificación depto mun
+10. 8 Tipo de asistencia depto mun
+11. 9 Lugar ocurrencia depto y mun
+12. 10 Infan neonatal post neonatal
+13. 11 Neonatal sexo causa muerte
+14. 12 Post neonatal sexo y causas
+15. 13 Mes ocurrencia y dia
+16. 14 Pueblo pertenencia y depto
+17. 15 Causa externa sexo y depto.
+18. 16 Grupo de edad COVID-19 sexo
+19. 17 Depto. COVI-19 y sexo
+
+AÑO: 2022
+Archivo: 2022.xlsx
+Total de hojas: 19
+
+1. Contenido
+2. Presentación
+3. 1 Depto ocurrencia y residencia
+4. 2 Depto. sexo y edades simples
+5. 3 Depto. sexo y grupos de edad
+6. 4 Depto sexo estado civil edad
+7. 5 Edad sexo y causas de muerte
+8. 6 Depto sexo y causas de muerte
+9. 7 Tipo certificación depto mun
+10. 8 Tipo de asistencia depto mun
+11. 9 Lugar ocurrencia depto y mun
+12. 10 Infan neonatal post neonatal
+13. 11 Neonatal sexo causa muerte
+14. 12 Post neonatal sexo y causas
+15. 13 Mes ocurrencia y dia
+16. 14 Pueblo pertenencia y depto
+17. 15 Causa externa sexo y depto.
+18. 16 Grupo de edad COVID-19 sexo
+19. 17 Depto. COVI-19 y sexo
+
+AÑO: 2023
+Archivo: 2023.xlsx
+Total de hojas: 20
+
+1. Contenido
+2. Presentación
+3. Serie histórica
+4. 1 Depto ocurrencia y residencia
+5. 2 Depto. sexo y edades simples
+6. 3 Depto. sexo y grupos de edad
+7. 4 Depto sexo estado civil edad
+8. 5 Edad sexo y causas de muerte
+9. 6 Depto sexo y causas de muerte
+10. 7 Tipo certificación depto mun
+11. 8 Tipo de asistencia depto mun
+12. 9 Lugar ocurrencia depto y mun
+13. 10 Infan neonatal post neonatal
+14. 11 Neonatal sexo causa muerte
+15. 12 Post neonatal sexo y causas
+16. 13 Mes ocurrencia y dia
+17. 14 Pueblo pertenencia y depto
+18. 15 Causa externa sexo y depto.
+19. Tasa bruta de mortalidad
+20. Nota Técnica
+
+AÑO: 2024
+Archivo: 2024.xlsx
+Total de hojas: 22
+
+1. Presentación
+2. Contenido
+3. Directorio
+4. Cuadro 1
+5. Cuadro 2
+6. Cuadro 3
+7. Cuadro 4
+8. Cuadro 5
+9. Cuadro 6
+10. Cuadro 7
+11. Cuadro 8
+12. Cuadro 9
+13. Cuadro 10
+14. Cuadro 11
+15. Cuadro 12
+16. Cuadro 13
+17. Cuadro 14
+18. Cuadro 15
+19. Cuadro 16
+20. Tasa bruta de mortalidad
+21. Nota técnica
+22. Ficha técnica
+

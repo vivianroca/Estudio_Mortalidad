@@ -1,0 +1,71 @@
+﻿Hoja,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,total_anios
+Contenido,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,16
+Depto. ocurrencia y residencia,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,12
+Depto. sexo estado civil y edad,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,12
+Depto. sexo y edades simples,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,12
+Depto. sexo y grupos de edad,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,12
+Infantil neonatal post neonatal,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,12
+Neonatal sexo y causa de muerte,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,12
+Post neonatal sexo y causas,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,12
+Depto. sexo y causas de muerte,1,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,11
+Edad sexo y causas de muerte,1,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,11
+Tipo certificación depto. y mun,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,11
+Causa externa sexo y depto.,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,10
+Lugar ocurrencia depto y mun,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,10
+Mes ocurrencia y dia,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,10
+Tipo de asistencia depto y mun,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,10
+Presentación,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,5
+Área geo. pueblo y depto,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,5
+1 Depto ocurrencia y residencia,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+10 Infan neonatal post neonatal,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+11 Neonatal sexo causa muerte,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+12 Post neonatal sexo y causas,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+13 Mes ocurrencia y dia,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+14 Pueblo pertenencia y depto,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+15 Causa externa sexo y depto.,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+2 Depto. sexo y edades simples,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+3 Depto. sexo y grupos de edad,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+4 Depto sexo estado civil edad,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+5 Edad sexo y causas de muerte,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+6 Depto sexo y causas de muerte,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+7 Tipo certificación depto mun,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+8 Tipo de asistencia depto mun,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+9 Lugar ocurrencia depto y mun,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,3
+Pueblo pertenencia y depto,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,3
+16 Grupo de edad COVID-19 sexo,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,2
+17 Depto. COVI-19 y sexo,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,2
+Año ocurr. y depto. residencia,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+"Lugar ocurrencia, depto y mun",1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Tasa bruta de mortalidad,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2
+"Tipo de asistencia, depto y mun",1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Área geo. etnia y depto,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+"Causa externa, sexo y depto.",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Cuadro 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Cuadro 9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Depto. COVI-19 y sexo,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1
+"Depto., sexo y causas de muerte",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Directorio,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+"Edad, sexo y causas de muerte",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Ficha técnica,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+"Grupo de edad y COVID-19, sexo",0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1
+Mes ocurrencia y día,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Mes y día de ocurrencia,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Nota Técnica,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1
+Nota técnica,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1
+Serie histórica,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1
+"Tipo certificacion, depto y mun",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Área geo. etnia y depto.,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1

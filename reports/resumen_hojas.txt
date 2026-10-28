@@ -1,0 +1,249 @@
+A. Resumen general
+Archivos esperados: 16
+Archivos procesados correctamente: 16
+Total de nombres de hojas diferentes: 70
+Archivos faltantes o con errores:
+Ninguno.
+
+1 = presente; 0 = ausente en un libro evaluado; NO EVALUADO = año sin observación.
+total_anios cuenta únicamente presencias comprobadas. Las exclusividades son provisionales si hay años no evaluados.
+
+B. Hojas presentes en todos los años
+- Contenido
+
+C. Hojas presentes en varios años
+- Depto. ocurrencia y residencia
+  Cantidad de años: 12
+  Presente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Depto. sexo estado civil y edad
+  Cantidad de años: 12
+  Presente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Depto. sexo y edades simples
+  Cantidad de años: 12
+  Presente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Depto. sexo y grupos de edad
+  Cantidad de años: 12
+  Presente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Infantil neonatal post neonatal
+  Cantidad de años: 12
+  Presente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Neonatal sexo y causa de muerte
+  Cantidad de años: 12
+  Presente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Post neonatal sexo y causas
+  Cantidad de años: 12
+  Presente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Depto. sexo y causas de muerte
+  Cantidad de años: 11
+  Presente: 2009, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2010, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Edad sexo y causas de muerte
+  Cantidad de años: 11
+  Presente: 2009, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2010, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Tipo certificación depto. y mun
+  Cantidad de años: 11
+  Presente: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2009, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Causa externa sexo y depto.
+  Cantidad de años: 10
+  Presente: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2009, 2010, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Lugar ocurrencia depto y mun
+  Cantidad de años: 10
+  Presente: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2009, 2010, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Mes ocurrencia y dia
+  Cantidad de años: 10
+  Presente: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2009, 2010, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Tipo de asistencia depto y mun
+  Cantidad de años: 10
+  Presente: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+  Ausente: 2009, 2010, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Presentación
+  Cantidad de años: 5
+  Presente: 2020, 2021, 2022, 2023, 2024
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019
+  No evaluado: ninguno
+- Área geo. pueblo y depto
+  Cantidad de años: 5
+  Presente: 2013, 2014, 2015, 2016, 2017
+  Ausente: 2009, 2010, 2011, 2012, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- 1 Depto ocurrencia y residencia
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 10 Infan neonatal post neonatal
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 11 Neonatal sexo causa muerte
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 12 Post neonatal sexo y causas
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 13 Mes ocurrencia y dia
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 14 Pueblo pertenencia y depto
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 15 Causa externa sexo y depto.
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 2 Depto. sexo y edades simples
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 3 Depto. sexo y grupos de edad
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 4 Depto sexo estado civil edad
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 5 Edad sexo y causas de muerte
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 6 Depto sexo y causas de muerte
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 7 Tipo certificación depto mun
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 8 Tipo de asistencia depto mun
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- 9 Lugar ocurrencia depto y mun
+  Cantidad de años: 3
+  Presente: 2021, 2022, 2023
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024
+  No evaluado: ninguno
+- Pueblo pertenencia y depto
+  Cantidad de años: 3
+  Presente: 2018, 2019, 2020
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- 16 Grupo de edad COVID-19 sexo
+  Cantidad de años: 2
+  Presente: 2021, 2022
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2024
+  No evaluado: ninguno
+- 17 Depto. COVI-19 y sexo
+  Cantidad de años: 2
+  Presente: 2021, 2022
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2024
+  No evaluado: ninguno
+- Año ocurr. y depto. residencia
+  Cantidad de años: 2
+  Presente: 2009, 2010
+  Ausente: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Lugar ocurrencia, depto y mun
+  Cantidad de años: 2
+  Presente: 2009, 2010
+  Ausente: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Tasa bruta de mortalidad
+  Cantidad de años: 2
+  Presente: 2023, 2024
+  Ausente: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022
+  No evaluado: ninguno
+- Tipo de asistencia, depto y mun
+  Cantidad de años: 2
+  Presente: 2009, 2010
+  Ausente: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+- Área geo. etnia y depto
+  Cantidad de años: 2
+  Presente: 2011, 2012
+  Ausente: 2009, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+  No evaluado: ninguno
+
+D. Hojas exclusivas
+- Causa externa, sexo y depto.: 2010
+- Cuadro 1: 2024
+- Cuadro 10: 2024
+- Cuadro 11: 2024
+- Cuadro 12: 2024
+- Cuadro 13: 2024
+- Cuadro 14: 2024
+- Cuadro 15: 2024
+- Cuadro 16: 2024
+- Cuadro 2: 2024
+- Cuadro 3: 2024
+- Cuadro 4: 2024
+- Cuadro 5: 2024
+- Cuadro 6: 2024
+- Cuadro 7: 2024
+- Cuadro 8: 2024
+- Cuadro 9: 2024
+- Depto. COVI-19 y sexo: 2020
+- Depto., sexo y causas de muerte: 2010
+- Directorio: 2024
+- Edad, sexo y causas de muerte: 2010
+- Ficha técnica: 2024
+- Grupo de edad y COVID-19, sexo: 2020
+- Mes ocurrencia y día: 2010
+- Mes y día de ocurrencia: 2009
+- Nota Técnica: 2023
+- Nota técnica: 2024
+- Serie histórica: 2023
+- Tipo certificacion, depto y mun: 2009
+- Área geo. etnia y depto.: 2010
+
+E. Posibles equivalencias
+Grupo para revisión manual:
+- 'Mes ocurrencia y dia': 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+- 'Mes ocurrencia y día': 2010
+Grupo para revisión manual:
+- 'Nota Técnica': 2023
+- 'Nota técnica': 2024

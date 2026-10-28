@@ -1,0 +1,166 @@
+erDiagram
+    INDICADOR ||--o{ FUENTE_CSV : tiene_versiones
+    INDICADOR ||--o{ COBERTURA : documenta
+
+    FUENTE_CSV ||--o{ HECHO_IND002 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND004 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND005 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND006 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND007 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND009 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND010 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND013 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND014 : contiene
+
+    DEPARTAMENTO ||--o{ MUNICIPIO : contiene
+    DEPARTAMENTO ||--o{ HECHO_IND002 : ocurrencia
+    DEPARTAMENTO ||--o{ HECHO_IND002 : residencia
+    DEPARTAMENTO ||--o{ HECHO_IND004 : residencia
+    DEPARTAMENTO ||--o{ HECHO_IND005 : residencia
+    DEPARTAMENTO ||--o{ HECHO_IND006 : residencia
+
+    MUNICIPIO ||--o{ HECHO_IND009 : residencia
+    MUNICIPIO ||--o{ HECHO_IND013 : residencia
+    MUNICIPIO ||--o{ HECHO_IND014 : residencia
+
+    SEXO ||--o{ HECHO_IND004 : clasifica
+    SEXO ||--o{ HECHO_IND005 : clasifica
+    SEXO ||--o{ HECHO_IND006 : clasifica
+    SEXO ||--o{ HECHO_IND007 : clasifica
+
+    ESQUEMA_EDAD ||--o{ CATEGORIA_EDAD : define
+    CATEGORIA_EDAD ||--o{ HECHO_IND005 : edad_simple
+    CATEGORIA_EDAD ||--o{ HECHO_IND006 : grupo_edad
+    CATEGORIA_EDAD ||--o{ HECHO_IND007 : edad_causa
+
+    CAUSA ||--o{ ETIQUETA_CAUSA : tiene_variantes
+    ETIQUETA_CAUSA ||--o{ HECHO_IND004 : descripcion_publicada
+    ETIQUETA_CAUSA ||--o{ HECHO_IND007 : descripcion_publicada
+
+    INDICADOR ||--o{ CATEGORIA_CUADRO : define
+    CATEGORIA_CUADRO ||--o{ HECHO_IND009 : lugar
+    CATEGORIA_CUADRO ||--o{ HECHO_IND013 : certificacion
+    CATEGORIA_CUADRO ||--o{ HECHO_IND014 : asistencia
+
+    INDICADOR {
+        string indicador_id PK
+        string alias UK
+        string titulo
+    }
+    FUENTE_CSV {
+        int fuente_id PK
+        string indicador_id FK
+        string ruta
+        string sha256 UK
+        string version
+        boolean es_actual
+    }
+    COBERTURA {
+        string indicador_id PK, FK
+        int anio PK
+        string estado
+        string observacion
+    }
+    DEPARTAMENTO {
+        int departamento_id PK
+        string nombre
+        string tipo
+    }
+    MUNICIPIO {
+        int municipio_id PK
+        int departamento_id FK
+        string nombre
+        string tipo
+    }
+    SEXO {
+        int sexo_id PK
+        string etiqueta UK
+    }
+    ESQUEMA_EDAD {
+        int esquema_id PK
+        string nombre UK
+    }
+    CATEGORIA_EDAD {
+        int edad_id PK
+        int esquema_id FK
+        string etiqueta_original
+        string tipo
+        int orden
+    }
+    CAUSA {
+        string codigo PK
+        string descripcion_oficial UK
+        boolean cie10_catalogo
+    }
+    ETIQUETA_CAUSA {
+        int etiqueta_causa_id PK
+        string codigo FK
+        string descripcion_original
+    }
+    CATEGORIA_CUADRO {
+        int categoria_id PK
+        string indicador_id FK
+        string etiqueta_original
+    }
+    HECHO_IND002 {
+        int hecho_id PK
+        int fuente_id FK
+        int departamento_ocurrencia_id FK
+        int departamento_residencia_id FK
+    }
+    HECHO_IND004 {
+        int hecho_id PK
+        int fuente_id FK
+        int departamento_residencia_id FK
+        int etiqueta_causa_id FK
+        int sexo_id FK
+        boolean tiene_cie10_fuente
+    }
+    HECHO_IND005 {
+        int hecho_id PK
+        int fuente_id FK
+        int departamento_residencia_id FK
+        int edad_id FK
+        int sexo_id FK
+    }
+    HECHO_IND006 {
+        int hecho_id PK
+        int fuente_id FK
+        int departamento_residencia_id FK
+        int edad_id FK
+        int sexo_id FK
+    }
+    HECHO_IND007 {
+        int hecho_id PK
+        int fuente_id FK
+        int edad_id FK
+        int etiqueta_causa_id FK
+        int sexo_id FK
+        boolean tiene_cie10_fuente
+    }
+    HECHO_IND009 {
+        int hecho_id PK
+        int fuente_id FK
+        int municipio_id FK
+        int categoria_id FK
+    }
+    HECHO_IND010 {
+        int hecho_id PK
+        int fuente_id FK
+        string mes_original
+        int mes_numero
+        int dia_ocurrencia
+        boolean fecha_valida
+    }
+    HECHO_IND013 {
+        int hecho_id PK
+        int fuente_id FK
+        int municipio_id FK
+        int categoria_id FK
+    }
+    HECHO_IND014 {
+        int hecho_id PK
+        int fuente_id FK
+        int municipio_id FK
+        int categoria_id FK
+    }
