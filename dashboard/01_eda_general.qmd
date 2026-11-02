@@ -1,0 +1,258 @@
+---
+title: "Mortalidad registrada en Guatemala: EDA 2009–2024"
+subtitle: "Composición temporal, demográfica, epidemiológica y territorial"
+lang: es
+jupyter: python3
+format:
+  html:
+    theme: default
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    embed-resources: true
+    self-contained-math: false
+    code-fold: true
+execute:
+  enabled: true
+  echo: false
+  warning: false
+  error: false
+  cache: false
+---
+
+```{python}
+#| label: preparacion
+from pathlib import Path
+import sys
+ROOT = Path.cwd()
+if not (ROOT / "data/processed/merge_final.parquet").exists():
+    ROOT = ROOT.parent
+assert (ROOT / "data/processed/merge_final.parquet").exists()
+sys.path.insert(0, str(ROOT / "src"))
+from eda_general import EDA, PERIODS, AGES
+eda = EDA()
+eda.javascript()
+```
+
+# Introducción y metodología
+
+**Pregunta general.** ¿Cómo varían el volumen y la composición de las defunciones registradas en Guatemala entre 2009 y 2024, según sexo, edad, causas y departamento de residencia?
+
+Este reporte corresponde a la etapa exploratoria de una investigación académica basada en microdatos del **Instituto Nacional de Estadística de Guatemala (INE)**. Su finalidad es describir patrones y formular preguntas para una investigación posterior sobre perfiles epidemiológicos territoriales y estabilidad temporal. No se entrenan modelos ni se forman conglomerados.
+
+```{python}
+eda.note("intro")
+```
+
+## Fuente, unidad y cobertura
+
+Se utiliza directamente `data/processed/merge_final.parquet`, consolidado y enriquecido previamente. Cada fila corresponde a un registro retenido de la fuente. Se reutilizan las definiciones de `docu/diccionario_datos.md`, las decisiones de `docu/log_depura_causas.md` y las limitaciones de `reports/auditoria_eda.md`. No se ejecuta ETL ni otra normalización de enfermedades.
+
+- **Fecha:** `anio` y `mes` son de **registro**. `fecha_mes` utiliza un día convencional; no es la fecha exacta de fallecimiento.
+- **Inclusión:** en cada archivo anual se retuvo el año de registro predominante coincidente con su nombre. Las inscripciones de años secundarios quedaron fuera durante la construcción previa. No se afirma exhaustividad del universo anual de defunciones ocurridas.
+- **Sexo y edad:** se usan `sexo`, `edad` y `periodo_edad`. Se conservan explícitamente las categorías ignoradas.
+- **Causas:** se respetan `enfermedad_normalizada` y los 19 rótulos de `grupo_epidemiologico`. `causa`, `bloque_nombre` y `sub_enfermedad_detalle` permanecen disponibles en el Parquet. No se mezclan conteos de diferentes indicadores agregados.
+- **Residencia:** se utiliza `depto_res`, no departamento de ocurrencia. Extranjero e ignorado se conservan en los análisis generales y se excluyen únicamente de los mapas departamentales.
+
+Todos los gráficos muestran **conteos de registros o porcentajes de esos registros**. No se dispone aquí de denominadores poblacionales compatibles para estimar tasas, riesgos o incidencia. Un mayor número de registros no implica mayor riesgo de fallecer.
+
+## Comparabilidad y precisión
+
+La auditoría identifica cobertura parcial de algunas variables, edades extremas, residencia desconocida y cambios históricos de codificación. El año de ocurrencia falta en 2012–2014. Las enfermedades contienen agrupaciones manuales previas: por ejemplo, A090 incorpora A09X, A099 y K529; se documentaron también otras asignaciones y el uso residual de R99X. Las etiquetas no tienen precisión clínica uniforme. Este EDA conserva esas decisiones y no las revalida ni modifica.
+
+Los períodos **prepandemia, pandemia y pospandemia** son ventanas operativas de comparación solicitadas: 2009–2019, 2020–2021 y 2022–2024. No constituyen una atribución causal de los cambios observados.
+
+# Evolución temporal
+
+**Pregunta.** ¿En qué años cambia el volumen registrado y cómo se comparan períodos de distinta duración?
+
+```{python}
+eda.show("annual")
+eda.show("yoy")
+eda.note("temporal")
+```
+
+La variación interanual se calcula como `100 × (conteo del año / conteo del año anterior − 1)`. El primer año no tiene comparación porque no se incluye 2008. No se estimó una línea base contrafactual; por tanto, las diferencias no se califican como **exceso de mortalidad**.
+
+```{python}
+eda.table(eda.annual, {"anio":"Año de registro", "registros":"Registros", "variacion_pct":"Variación interanual (%)", "cambio_absoluto":"Cambio absoluto"})
+eda.show("periods")
+eda.table(eda.periods, {"periodo":"Período", "anios":"Número de años", "registros":"Suma de registros", "promedio_anual":"Promedio anual"})
+```
+
+Se comparan **promedios anuales**, no solo sumas acumuladas: las ventanas tienen distinta duración. Las diferencias también pueden reflejar composición demográfica, cobertura, oportunidad de inscripción y codificación; estos factores no se aíslan en esta etapa.
+
+# Características demográficas
+
+**Pregunta.** ¿Qué composición por sexo y edad presentan los registros y cómo cambia a lo largo del tiempo?
+
+## Sexo y edad
+
+```{python}
+eda.show("sex")
+eda.show("age")
+```
+
+La edad se interpreta con su período: **1 = días**, **2 = meses**, **3 = años** y **9 = ignorada**. Los períodos 1 y 2 se reúnen en **menores de un año**, sin interpretarlos como edades en años. En la base auditada no se observan valores de 12 meses en período 2; la etiqueta de la fuente 2010 difiere al indicar “1 a 12 meses”. Los grupos en años son 1–4, 5–14, 15–24, 25–44, 45–64, 65–79 y 80 o más.
+
+## Pirámide de defunciones
+
+```{python}
+eda.show("pyramid")
+eda.note("demography")
+```
+
+Los dos lados de la pirámide representan conteos positivos; el signo negativo de la representación masculina es exclusivamente gráfico. No se interpreta como una pirámide de la población guatemalteca ni como diferencias de esperanza de vida.
+
+## Composición anual
+
+```{python}
+eda.show("sex_year")
+eda.show("age_year")
+```
+
+Cada columna usa como denominador **todos los registros del año**. Las categorías ignoradas permanecen visibles cuando existen. Los cambios de participación pueden deberse a cambios en el numerador, en el resto de causas o edades y en la cobertura; no prueban cambios del riesgo específico.
+
+# Grupos epidemiológicos
+
+**Pregunta.** ¿Qué grupos concentran los registros y cómo cambia su participación temporal?
+
+## Distribución y ranking
+
+```{python}
+eda.show("groups")
+eda.table(eda.groups.head(10), {"grupo_epidemiologico":"Grupo epidemiológico (top 10)", "registros":"Registros", "porcentaje":"% del total"})
+eda.note("groups")
+```
+
+Se mantienen los **19 grupos originales**, incluidas las diferentes etiquetas de accidentes y violencia. Las diferencias de amplitud entre grupos impiden asumir que todos representan unidades clínicas del mismo nivel.
+
+## Evolución y composición anual
+
+```{python}
+eda.show("group_year")
+eda.show("group_share")
+```
+
+Las líneas permiten comparar volúmenes; el heatmap muestra porcentajes dentro de cada año para los 19 grupos. La leyenda de las líneas permite ocultar series y evitar comparaciones visuales saturadas. El color no representa tasas.
+
+## Comparación entre períodos
+
+```{python}
+eda.show("group_period")
+```
+
+Se calcula primero la participación de cada grupo en cada año y después su **media aritmética dentro del período**. Así cada año recibe el mismo peso. No se confunde esta medida con el porcentaje calculado sobre todos los registros acumulados del período. Las 19 participaciones medias suman 100 % en cada ventana.
+
+# Enfermedades normalizadas
+
+**Pregunta.** ¿Qué etiquetas de enfermedad predominan y cómo difiere su composición entre sexo, edad y períodos?
+
+## Frecuencia y evolución anual
+
+```{python}
+eda.show("diseases")
+eda.note("diseases")
+eda.show("disease_year")
+```
+
+El top veinte y la selección fija de diez enfermedades usan el nombre **exacto almacenado** en `enfermedad_normalizada`. No se fusionan nombres similares. La aparición de una etiqueta nueva puede relacionarse con cambios de clasificación; una celda cero no demuestra ausencia clínica en la población.
+
+## Comparación entre hombres y mujeres
+
+```{python}
+eda.show("disease_sex")
+```
+
+Los porcentajes se calculan **dentro de cada sexo**, para evitar que el distinto tamaño de sus totales determine por sí solo la comparación. Las estructuras etarias de ambos grupos no se ajustan; la comparación es descriptiva de las defunciones registradas.
+
+## Comparación por grandes grupos etarios
+
+```{python}
+eda.show("disease_age")
+eda.table(eda.age_leaders[["edad_amplia","enfermedad_normalizada","registros","porcentaje"]], {"edad_amplia":"Grupo etario", "enfermedad_normalizada":"Enfermedad (top 3 de cada grupo)", "registros":"Registros", "porcentaje":"% del grupo etario"})
+```
+
+El heatmap usa la unión de las cinco enfermedades principales de cada grupo etario, de modo que las afecciones infantiles puedan aparecer aunque no pertenezcan al top global. **Cada columna usa todos los registros de su grupo etario como denominador**, no solo las enfermedades mostradas. La categoría Ignorada se conserva y no se distribuye entre otras edades.
+
+## Composición por período
+
+```{python}
+eda.show("disease_period")
+```
+
+Se muestran quince enfermedades globalmente frecuentes. Las celdas representan la **media de sus porcentajes anuales**, con igual peso por año. Las columnas no suman 100 % porque la selección no incluye todas las enfermedades. Los cambios pueden combinar variación del registro, estructura demográfica y codificación; no permiten atribuir mecanismos clínicos ni causas externas a la serie.
+
+# Calidad epidemiológica del registro
+
+**Pregunta.** ¿Cómo evoluciona la cobertura y especificidad de las variables que sostienen las comparaciones?
+
+```{python}
+eda.show("quality")
+eda.note("quality")
+eda.table(eda.quality, {"anio":"Año de registro", "indicador":"Indicador", "registros":"Registros", "porcentaje":"% del total anual"})
+```
+
+**Signos y Causas Mal Definidas** corresponde al grupo exacto del catálogo. **R99X** se presenta además como código específico y se solapa con ese grupo; las dos series no deben sumarse. Edad ignorada y residencia ignorada se calculan como proporciones de todos los registros de cada año. No se excluyen del análisis general para mejorar artificialmente los indicadores.
+
+“No clasificado en otra parte” o “no especificado” dentro de una descripción clínica no equivalen automáticamente a un cruce fallido. Una clasificación completa puede seguir siendo poco específica. La calidad de registro puede influir en futuros perfiles territoriales y debe evaluarse antes de interpretar conglomerados como perfiles epidemiológicos.
+
+# Exploración territorial
+
+**Pregunta.** ¿Qué contrastes de volumen y composición aparecen según el departamento de residencia?
+
+## Cobertura geográfica y tabla departamental
+
+Se reutiliza `data/geo/departamentos_guatemala.geojson`, derivado previamente de `deptos.json` del repositorio **minfin-bi/Mapas-TopoJSON-Guatemala**. Se verifican las 22 geometrías y la correspondencia de códigos y nombres documentada: el identificador original dividido entre 100 corresponde a `depto_res`. No se descargan ni reconstruyen límites.
+
+```{python}
+eda.note("territory")
+eda.table(eda.excluded[["depto_res","residencia","registros","porcentaje_total"]], {"depto_res":"Código excluido del mapa", "residencia":"Residencia", "registros":"Registros", "porcentaje_total":"% del total general"})
+eda.table(eda.territory[["depto_res","departamento","registros","cardiovascular_pct","mal_definidas_pct"]], {"depto_res":"Código", "departamento":"Departamento de residencia", "registros":"Registros", "cardiovascular_pct":"Cardiovasculares (% del departamento)", "mal_definidas_pct":"Mal definidas (% del departamento)"})
+```
+
+## Composición por grupos epidemiológicos
+
+```{python}
+eda.show("territory_heat")
+```
+
+Los porcentajes usan como denominador el total de defunciones registradas del departamento, incluidas sus causas mal definidas. El tamaño poblacional, la composición por edad y el registro de residencia no se ajustan; el patrón de color no constituye una comparación de tasas.
+
+## Mapas interactivos
+
+```{python}
+eda.show("map_count")
+eda.show("map_cv")
+eda.show("map_ill")
+```
+
+Los tres mapas incluyen únicamente códigos **1–22**. Sus tooltips muestran el departamento, código, conteo departamental e indicador; los mapas porcentuales incluyen también el conteo del grupo correspondiente. El fondo vacío evita solicitudes de teselas o mapas externos. La interacción de Plotly/MapLibre se ejecuta en el navegador y requiere soporte WebGL, pero no un servidor Python.
+
+El mapa de conteos es sensible al tamaño poblacional y la cobertura. Los otros dos mapas describen **composición interna de las defunciones registradas**, no riesgo cardiovascular ni tasas de causas mal definidas en la población. No se redistribuyen extranjero e ignorado.
+
+La documentación de `data/geo/README.md` advierte que la fuente geográfica no declara una licencia explícita; la autorización de redistribución debe confirmarse antes de una publicación pública. Este trabajo prepara el HTML local y no realiza publicación ni configura GitHub Pages.
+
+# Hallazgos y preguntas para la investigación posterior
+
+Los siguientes hallazgos se generan a partir de los agregados calculados en esta ejecución. Orientan preguntas sobre perfiles territoriales y estabilidad temporal; no son resultados de clustering ni inferencias causales.
+
+```{python}
+eda.findings()
+```
+
+# Validaciones y reproducción
+
+```{python}
+eda.finish()
+```
+
+Desde la raíz del proyecto, con el entorno del proyecto activado:
+
+```bash
+source .venv/bin/activate
+export QUARTO_PYTHON="$PWD/.venv/bin/python"
+quarto render dashboard/01_eda_general.qmd
+```
+
+La configuración existente dirige el resultado a `docs/dashboard/01_eda_general.html`. El HTML incluye la biblioteca Plotly, los datos agregados y los polígonos; puede distribuirse como archivo estático y funcionar bajo `/Estudio_Mortalidad/` sin rutas absolutas de datos locales. Debe abrirse mediante **HTTP/HTTPS**, como en GitHub Pages: el protocolo `file://` puede impedir que los trabajadores de MapLibre dibujen los mapas. Para una consulta local se puede servir `docs/` con un servidor estático; no es un servidor de análisis ni necesita cargar los microdatos. El renderizado requiere los archivos de entrada locales, Python y Quarto; la consulta posterior requiere solo alojamiento estático y un navegador compatible con WebGL. No se incrustan microdatos ni se ejecuta otra depuración.

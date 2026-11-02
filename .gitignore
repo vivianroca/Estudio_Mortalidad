@@ -22,6 +22,10 @@ __pycache__/
 # Datos locales (reservados para gestión posterior con DVC)
 /data/raw_data/
 /data/processed/
+# El reporte publicado lleva únicamente agregados incrustados.
+*.parquet
+/data/geo/
+/outputs/
 # Material externo y libros de trabajo; conservar solo catálogo de etiquetas
 /catalog/*
 !/catalog/catalogo_cie10.csv

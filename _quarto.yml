@@ -4,14 +4,18 @@ project:
   render:
     - index.qmd
     - dashboards/*.qmd
+    - dashboard/01_eda_general.qmd
   resources:
     - "!data/**"
     - "!catalog/**"
     - "!reports/**"
     - "!docu/**"
     - "!src/**"
+    - "!outputs/**"
+    - "!**/*.parquet"
     - "!dashboards/*.html"
     - "!dashboards/*.py"
+    - "!dashboard/*.html"
     - "!.venv/**"
 
 website:

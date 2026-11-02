@@ -7,6 +7,7 @@ Investigación descriptiva de las defunciones en Guatemala durante **2009–2024
 
 ## Dashboards disponibles
 
+- [EDA general de mortalidad registrada · 2009–2024](dashboard/01_eda_general.qmd): análisis temporal, demográfico, epidemiológico y territorial con mapas interactivos.
 - [Mortalidad en Guatemala · 2009–2024](dashboards/ds_analisis1.qmd): evolución anual, causas de muerte, distribución territorial y edad.
 
 Las visualizaciones muestran una instantánea de datos agregados. Los archivos originales y los datasets de procesamiento no se distribuyen con este sitio. Los resultados son descriptivos y no establecen relaciones causales.
