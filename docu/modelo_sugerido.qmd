@@ -1,0 +1,339 @@
+# Modelo entidad–relación sugerido
+
+Propuesta basada en la estructura y el contenido de los CSV existentes, revisados el 28 de octubre de 2026. Es un diseño para una pequeña base de datos de cuadros agregados; no representa registros individuales de personas. No se creó una base de datos ni se modificaron los CSV.
+
+La recomendación es mantener **nueve tablas de hechos, una por indicador**, y compartir los catálogos de referencia. Así se conserva el nivel de detalle de cada cuadro y se pueden comparar resultados sin multiplicar conteos mediante uniones entre tablas de hechos.
+
+## CSV analíticos revisados
+
+Los nueve archivos actuales suman **232.692 filas**. Todos tienen `conteo` entero y no presentan valores vacíos. El número de filas describe el tamaño de los archivos, no la cantidad de defunciones.
+
+| Indicador | CSV en `data/processed/` | Filas | Nivel de detalle de una fila |
+|---|---|---:|---|
+| IND-002 | `ind002_2009_2024.csv` | 8.448 | Año × departamento de ocurrencia × departamento de residencia |
+| IND-004 | `ind004_2009_2024.csv` | 13.056 | Año × residencia × descripción de causa × sexo × fila publicada |
+| IND-005 | `ind005_2009_2024.csv` | 77.568 | Año × residencia × edad simple × sexo |
+| IND-006 | `ind006_2009_2024.csv` | 16.896 | Año × residencia × grupo de edad × sexo |
+| IND-007 | `ind007_2009_2024_sin_2011.csv` | 13.230 | Año × categoría de edad × descripción de causa × sexo × fila publicada |
+| IND-009 | `ind009_2009_2024.csv` | 45.199 | Año × residencia municipal × lugar de ocurrencia |
+| IND-010 | `ind010_2009_2024.csv` | 5.952 | Año × mes de ocurrencia × día del mes publicado |
+| IND-013 | `ind013_2009_2024.csv` | 20.728 | Año × residencia municipal × tipo de certificación |
+| IND-014 | `ind014_2009_2024.csv` | 31.615 | Año × residencia municipal × tipo de asistencia |
+
+IND-007 excluye 2011 por decisión del proyecto. Los otros ocho indicadores cubren los 16 años de 2009 a 2024.
+
+## Diagrama Mermaid
+
+Las entidades `HECHO_INDxxx` corresponden a los nueve CSV completos. Todas deben incluir también los campos comunes `anio`, `conteo` y `fila_csv`, descritos debajo del diagrama. Se omiten esos campos repetidos en el dibujo para facilitar su lectura.
+
+```{mermaid}
+erDiagram
+    INDICADOR ||--o{ FUENTE_CSV : tiene_versiones
+    INDICADOR ||--o{ COBERTURA : documenta
+
+    FUENTE_CSV ||--o{ HECHO_IND002 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND004 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND005 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND006 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND007 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND009 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND010 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND013 : contiene
+    FUENTE_CSV ||--o{ HECHO_IND014 : contiene
+
+    DEPARTAMENTO ||--o{ MUNICIPIO : contiene
+    DEPARTAMENTO ||--o{ HECHO_IND002 : ocurrencia
+    DEPARTAMENTO ||--o{ HECHO_IND002 : residencia
+    DEPARTAMENTO ||--o{ HECHO_IND004 : residencia
+    DEPARTAMENTO ||--o{ HECHO_IND005 : residencia
+    DEPARTAMENTO ||--o{ HECHO_IND006 : residencia
+
+    MUNICIPIO ||--o{ HECHO_IND009 : residencia
+    MUNICIPIO ||--o{ HECHO_IND013 : residencia
+    MUNICIPIO ||--o{ HECHO_IND014 : residencia
+
+    SEXO ||--o{ HECHO_IND004 : clasifica
+    SEXO ||--o{ HECHO_IND005 : clasifica
+    SEXO ||--o{ HECHO_IND006 : clasifica
+    SEXO ||--o{ HECHO_IND007 : clasifica
+
+    ESQUEMA_EDAD ||--o{ CATEGORIA_EDAD : define
+    CATEGORIA_EDAD ||--o{ HECHO_IND005 : edad_simple
+    CATEGORIA_EDAD ||--o{ HECHO_IND006 : grupo_edad
+    CATEGORIA_EDAD ||--o{ HECHO_IND007 : edad_causa
+
+    CAUSA ||--o{ ETIQUETA_CAUSA : tiene_variantes
+    ETIQUETA_CAUSA ||--o{ HECHO_IND004 : descripcion_publicada
+    ETIQUETA_CAUSA ||--o{ HECHO_IND007 : descripcion_publicada
+
+    INDICADOR ||--o{ CATEGORIA_CUADRO : define
+    CATEGORIA_CUADRO ||--o{ HECHO_IND009 : lugar
+    CATEGORIA_CUADRO ||--o{ HECHO_IND013 : certificacion
+    CATEGORIA_CUADRO ||--o{ HECHO_IND014 : asistencia
+
+    INDICADOR {
+        string indicador_id PK
+        string alias UK
+        string titulo
+    }
+    FUENTE_CSV {
+        int fuente_id PK
+        string indicador_id FK
+        string ruta
+        string sha256 UK
+        string version
+        boolean es_actual
+    }
+    COBERTURA {
+        string indicador_id PK, FK
+        int anio PK
+        string estado
+        string observacion
+    }
+    DEPARTAMENTO {
+        int departamento_id PK
+        string nombre
+        string tipo
+    }
+    MUNICIPIO {
+        int municipio_id PK
+        int departamento_id FK
+        string nombre
+        string tipo
+    }
+    SEXO {
+        int sexo_id PK
+        string etiqueta UK
+    }
+    ESQUEMA_EDAD {
+        int esquema_id PK
+        string nombre UK
+    }
+    CATEGORIA_EDAD {
+        int edad_id PK
+        int esquema_id FK
+        string etiqueta_original
+        string tipo
+        int orden
+    }
+    CAUSA {
+        string codigo PK
+        string descripcion_oficial UK
+        boolean cie10_catalogo
+    }
+    ETIQUETA_CAUSA {
+        int etiqueta_causa_id PK
+        string codigo FK
+        string descripcion_original
+    }
+    CATEGORIA_CUADRO {
+        int categoria_id PK
+        string indicador_id FK
+        string etiqueta_original
+    }
+    HECHO_IND002 {
+        int hecho_id PK
+        int fuente_id FK
+        int departamento_ocurrencia_id FK
+        int departamento_residencia_id FK
+    }
+    HECHO_IND004 {
+        int hecho_id PK
+        int fuente_id FK
+        int departamento_residencia_id FK
+        int etiqueta_causa_id FK
+        int sexo_id FK
+        boolean tiene_cie10_fuente
+    }
+    HECHO_IND005 {
+        int hecho_id PK
+        int fuente_id FK
+        int departamento_residencia_id FK
+        int edad_id FK
+        int sexo_id FK
+    }
+    HECHO_IND006 {
+        int hecho_id PK
+        int fuente_id FK
+        int departamento_residencia_id FK
+        int edad_id FK
+        int sexo_id FK
+    }
+    HECHO_IND007 {
+        int hecho_id PK
+        int fuente_id FK
+        int edad_id FK
+        int etiqueta_causa_id FK
+        int sexo_id FK
+        boolean tiene_cie10_fuente
+    }
+    HECHO_IND009 {
+        int hecho_id PK
+        int fuente_id FK
+        int municipio_id FK
+        int categoria_id FK
+    }
+    HECHO_IND010 {
+        int hecho_id PK
+        int fuente_id FK
+        string mes_original
+        int mes_numero
+        int dia_ocurrencia
+        boolean fecha_valida
+    }
+    HECHO_IND013 {
+        int hecho_id PK
+        int fuente_id FK
+        int municipio_id FK
+        int categoria_id FK
+    }
+    HECHO_IND014 {
+        int hecho_id PK
+        int fuente_id FK
+        int municipio_id FK
+        int categoria_id FK
+    }
+```
+
+Los identificadores enteros del modelo son claves internas propuestas para la base de datos; no son códigos oficiales del INE. Las relaciones expresan que cada fila de hechos pertenece a una sola entidad de referencia, que puede tener cero o muchas observaciones.
+
+## Campos comunes y procedencia
+
+Cada tabla de hechos añade a las columnas dibujadas:
+
+| Campo | Tipo sugerido | Regla |
+|---|---|---|
+| `anio` | `SMALLINT` | Año publicado, entre 2009 y 2024 |
+| `conteo` | `BIGINT` | Entero mayor o igual que cero |
+| `fila_csv` | `INTEGER` | Número de fila de datos del CSV, empezando en 1, sin contar el encabezado |
+
+`fuente_id + fila_csv` debe ser único en cada tabla de hechos. Permite cargar un archivo sin duplicarlo y conservar por separado observaciones con las mismas dimensiones. El orden de filas se interpreta dentro de una versión identificada por su hash; no es una identidad estable entre versiones.
+
+`FUENTE_CSV` debe distinguir versiones completas, pilotos y respaldos. Para las consultas habituales solo se usa la versión actual completa de cada indicador. No se cargan simultáneamente el piloto, el respaldo `first_raw` y el archivo final como si fueran observaciones diferentes.
+
+El año y la identidad del indicador deben ser coherentes con su tabla: una fuente de IND-004 no puede alimentar HECHO_IND007. Las categorías de cuadro deben pertenecer a su indicador y las edades al esquema correspondiente. Estas restricciones requieren comprobaciones de carga o restricciones adicionales; el diagrama por sí solo no las impone.
+
+## Claves y correspondencia con las columnas actuales
+
+| Tabla de hechos | Correspondencia y clave dimensional candidata dentro de una versión |
+|---|---|
+| `HECHO_IND002` | `anio + depto_ocurrencia + depto_residencia`; las dos FK apuntan a DEPARTAMENTO en roles diferentes |
+| `HECHO_IND004` | Conserva `causa_muerte` mediante ETIQUETA_CAUSA, `codigo` mediante CAUSA y el flag mediante `tiene_cie10_fuente`. No imponer unicidad por año/residencia/causa/sexo |
+| `HECHO_IND005` | `anio + depto_residencia + edad + sexo`; categoría del esquema `edad_simple` |
+| `HECHO_IND006` | `anio + depto_residencia + grupo_edad + sexo`; categoría del esquema `grupo_edad_residencia` |
+| `HECHO_IND007` | Conserva edad original, causa, código y flag. No imponer unicidad por año/edad/causa/sexo |
+| `HECHO_IND009` | `anio + municipio_id + categoria_id`; `lugar_ocurrencia` es una categoría propia de IND-009 |
+| `HECHO_IND010` | `anio + mes_numero + dia_ocurrencia`; `mes_original` conserva el nombre publicado |
+| `HECHO_IND013` | `anio + municipio_id + categoria_id`; `tipo_certificacion` es una categoría propia de IND-013 |
+| `HECHO_IND014` | `anio + municipio_id + categoria_id`; `tipo_asistencia` es una categoría propia de IND-014 |
+
+Las claves candidatas sin repetición pueden convertirse en restricciones `UNIQUE` junto con `fuente_id`, después de resolver las correspondencias geográficas y validar nuevamente la carga. `conteo` no es parte de una clave.
+
+### Filas con dimensiones repetidas
+
+En la revisión de los archivos actuales encontré:
+
+- **IND-004:** cuatro repeticiones adicionales de claves dimensionales; ocho filas participan en esos pares. Son observaciones de 2015 conservadas después de asignar el código final a «Enfermedad renal crónica».
+- **IND-007:** doce repeticiones adicionales de claves dimensionales; corresponden también a filas publicadas que se conservaron.
+- Ninguno de los dos archivos tiene filas completamente idénticas, incluyendo el conteo.
+
+No se deben eliminar ni fusionar esas filas durante la carga. Una clave primaria basada solo en año, territorio/edad, causa y sexo perdería información o rechazaría datos. La identificación por fila y versión evita ese problema. Los códigos originales de las filas duplicadas no están en los CSV finales: no se pueden reconstruir desde el flag.
+
+## Catálogos compartidos
+
+### Geografía
+
+`DEPARTAMENTO` incluye los 22 departamentos reales y dos categorías especiales: `Extranjero` e `Ignorado`. El campo `tipo` permite distinguirlos. En el rol de ocurrencia de IND-002 solo se admiten los 22 departamentos publicados; en residencia se admiten las 24 categorías.
+
+IND-004 contiene **30 etiquetas distintas de residencia**, debido a variantes como `Peten`/`Petén` y `Sacatepequez`/`Sacatepéquez`. Antes de usar FK compartidas se necesita una correspondencia explícita, revisada, a los 24 identificadores. No se debe aplicar una fusión general de nombres por similitud. Para conservar exactamente el texto original, la carga debe guardar las etiquetas fuente como columnas de procedencia, además de las FK. Los CSV actuales siguen siendo la referencia textual.
+
+En los archivos municipales hay **338 nombres distintos y 344 pares exactos departamento–municipio** en la unión de los años. Esto no significa que existan 344 municipios administrativos: incluye categorías especiales y variantes de escritura. Nunca usar solo el nombre del municipio como clave.
+
+`MUNICIPIO` debe identificar la residencia dentro de un departamento. La unicidad propuesta es `(departamento_id, nombre)` después de revisar variantes; mientras tanto, mantener cada etiqueta fuente diferenciada. `Extranjero/Extranjero` e `Ignorado/Ignorado` se representan como categorías especiales, sin inventar ubicaciones concretas. Si se requiere un catálogo territorial histórico oficial, habrá que incorporarlo y revisarlo en una etapa posterior.
+
+En los hechos municipales no hace falta repetir el departamento como FK: se obtiene desde MUNICIPIO. Sí puede conservarse el texto original de ambas columnas como procedencia.
+
+### Edad
+
+Una sola tabla CATEGORIA_EDAD puede servir a tres esquemas separados, con unicidad `(esquema_id, etiqueta_original)`:
+
+| Esquema | Indicador | Categorías observadas | Precaución |
+|---|---|---:|---|
+| `edad_simple` | IND-005 | 101 | `0` representa menos de un año; `99 y más` es un intervalo abierto; `Ignorado` no es una edad |
+| `grupo_edad_residencia` | IND-006 | 22 | Incluye menor de un año, 1–4, grupos quinquenales hasta 90–94, 95 y más e Ignorado |
+| `edad_causa` | IND-007 | 26 | Combina días neonatales, edades simples, intervalos quinquenales, 85 y más e Ignorado |
+
+No convertir todos estos valores a un entero ni identificar categorías por una coincidencia superficial del texto. `tipo` puede ser simple, intervalo, abierto o ignorado; `orden` permite presentar los grupos correctamente sin ordenarlos alfabéticamente. Los límites numéricos y las unidades podrían añadirse tras una revisión específica; no se infieren aquí.
+
+Las etiquetas originales pueden tener espacios adicionales. Si se aprueba una etiqueta de presentación limpia, debe conservarse también la etiqueta original y su correspondencia, sin cambiar los datos fuente.
+
+### Causas y CIE-10
+
+`CAUSA` se alimenta de `catalog/catalogo_cie10.csv`: **168 códigos y descripciones oficiales del proyecto, únicos y sin vacíos**. Los códigos se guardan como texto: existen códigos adaptados del proyecto y categorías como `OTRAS` y `COVID`, además de rangos. No deben restringirse a un formato de código CIE-10 de tres caracteres.
+
+`ETIQUETA_CAUSA` guarda la descripción original de los cuadros y su código final aprobado. Se recomienda unicidad `(codigo, descripcion_original)`. Las variantes revisadas se obtienen de `rev_final` en la propuesta y `Revision_IND007` en `catalog/posible_cat.xlsx`; la hoja original CIE-10 es material de referencia, no sustituye al catálogo aprobado.
+
+Hay dos flags diferentes:
+
+- `CAUSA.cie10_catalogo`: viene de `cie10` en el catálogo final.
+- `HECHO_IND004.tiene_cie10_fuente` y `HECHO_IND007.tiene_cie10_fuente`: vienen de `tiene_cie10` del CSV y registran si la fila original contenía un código explícito.
+
+No se reemplaza un flag por el otro. Una fila fuente puede tener flag 0 y contar con un código final asignado posteriormente.
+
+Las listas de causas son selectivas por residencia o edad. «Otras causas» cambia de composición entre bloques y años. Una causa no listada no equivale a cero ni debe completarse automáticamente para formar una matriz exhaustiva.
+
+### Categorías de lugar, certificación y asistencia
+
+CATEGORIA_CUADRO se identifica por `(indicador_id, etiqueta_original)`, con tres ámbitos distintos. Evita confundir, por ejemplo, «Médica» como certificación con «Médica» como asistencia.
+
+| Indicador | Etiquetas distintas en todos los años | Cambios observados |
+|---|---:|---|
+| IND-009 | 12 | 5 categorías en 2009, 9 entre 2010–2017 y 8 desde 2018; incluye variantes `Vía pública`/`Vía Pública` |
+| IND-013 | 8 | Cambian las categorías y la escritura: `Médica`, `Medico`, `Médico`, `Paramedico`, `Paramédico`; 2024 solo publica Médico e Ignorado |
+| IND-014 | 6 | 2009 no publica Paramédica; 2012–2013 no publican Ignorado |
+
+Estas diferencias se conservan. No declarar equivalencias semánticas ni completar con ceros las categorías no publicadas sin una decisión documentada.
+
+### Día y mes de ocurrencia
+
+IND-010 contiene la matriz completa de **31 días × 12 meses por año**. Hay **108 combinaciones de fecha inexistentes** en toda la serie, todas con cero publicado.
+
+Conservar `anio`, `mes_numero` y `dia_ocurrencia` como componentes, más `mes_original`. `fecha_valida` es un atributo calculable a partir del calendario. No usar una fecha SQL obligatoria como única clave, porque no podría representar esas celdas. Una vista de fechas reales puede filtrar `fecha_valida = true`, conservando la tabla publicada completa.
+
+## Cobertura, validación y versiones
+
+COBERTURA tiene clave compuesta `(indicador_id, anio)` y registra estados como `validado`, `con_advertencia`, `excluido` o `no_evaluado`. No debe confundirse con el conteo de una observación.
+
+- IND-007 de **2011** se registra como `excluido`, sin hechos: la etiqueta «83 - 84 años» en una fila del bloque «80 - 84 años» no fue corregida. No cargar ese año como cero.
+- IND-004 de **2023** se registra como `con_advertencia`: el bloque nacional original de causas queda una defunción por debajo del total publicado. Los registros exportados de residencia conservan sus conteos; no se corrigió el original.
+- Los reportes de validación existentes conservan el detalle de las comprobaciones y deben vincularse desde la carga o la cobertura.
+
+Los registros de FUENTE_CSV son específicos de una versión. Conservar ruta y hash permite evitar una doble carga y distinguir una versión final de su respaldo. `fila_csv` solo permite volver a la fila del CSV; para recuperar coordenadas exactas del Excel en la base habría que añadirlas desde los procesos de transformación, sin inventarlas.
+
+## Otros CSV revisados y su lugar en el modelo
+
+| Archivo | Filas | Uso sugerido |
+|---|---:|---|
+| `catalog/catalogo_cie10.csv` | 168 | Catálogo CAUSA |
+| `reports/estructura/catalogo_indicadores.csv` | 23 | Base para INDICADOR; el modelo de hechos actual cubre solo los nueve indicadores trabajados |
+| `reports/estructura/inventario_estructura.csv` | 275 | Metadatos de hojas, dimensiones y encabezados; no hechos de mortalidad |
+| `reports/estructura/posibles_equivalencias.csv` | 4.421 | Evidencia de auditoría de pares de hojas; no relaciones confirmadas de indicadores |
+| `reports/comparacion_hojas.csv` | 70 | Auditoría de presencia de nombres de hojas; no dimensiones analíticas |
+| `data/manifiesto_defunciones.csv` | 16 | Historial de intentos de descarga; tiene URL vacía en las 16 filas y numerosos campos vacíos. No acredita por sí solo la procedencia de las descargas manuales |
+| `ind002_piloto_2009_2010.csv` | 1.056 | Versión piloto; no cargar junto con la serie completa |
+| `ind004_piloto_2009_2010.csv` | 1.632 | Versión piloto anterior a los códigos finales; no cargar junto con la versión final |
+| `ind005_piloto_2009_2010.csv` | 9.696 | Versión piloto; no cargar junto con la serie completa |
+| `data/processed/first_raw/ind004_2009_2024.csv` | 13.056 | Respaldo anterior a la asignación final de códigos; conservar como procedencia |
+
+Las rutas abreviadas de los pilotos corresponden a `data/processed/`. Estos reportes pueden permanecer como archivos vinculados, sin incorporarlos a la base analítica inicial. Si después se necesita consultar la auditoría en SQL, conviene un módulo de metadatos separado.
+
+## Reglas de carga y consulta
+
+1. Cargar el catálogo final y las correspondencias revisadas antes que las tablas de hechos. Validar claves foráneas y conservar todos los conteos como enteros no negativos.
+2. Conservar «Extranjero», «Ignorado», intervalos abiertos y ceros publicados; no tratarlos como errores o ausencias genéricas.
+3. No eliminar filas repetidas por sus dimensiones en IND-004 o IND-007. Usar la identificación de fila dentro de su versión y no inventar el código original que ya no está exportado.
+4. Verificar los totales por año y por las dimensiones disponibles, usando los informes existentes. No incorporar totales/subtotales descartados como nuevas observaciones analíticas.
+5. No sumar los nueve indicadores entre sí: son desagregaciones diferentes de las mismas defunciones. Una unión por año entre hechos produciría relaciones muchos-a-muchos y multiplicaría cifras.
+6. Para comparar indicadores, agregar cada tabla por separado al nivel común requerido y después unir esos resultados; no inferir cruces no publicados, como municipio × causa a partir de dos cuadros separados.
+7. Usar solo una versión activa por indicador. Registrar exclusiones y advertencias explícitamente; la falta de filas no equivale automáticamente a cero.
+8. Mantener los CSV y Excel existentes sin cambios. Este documento propone una estructura; no aprueba una limpieza geográfica, una homologación de categorías ni una equivalencia clínica adicional.

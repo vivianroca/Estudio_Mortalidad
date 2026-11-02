@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Dashboards de mortalidad en Guatemala",
+    "section": "",
+    "text": "Investigación descriptiva de las defunciones en Guatemala durante 2009–2024, basada en cuadros oficiales del Instituto Nacional de Estadística (INE)."
+  },
+  {
+    "objectID": "index.html#dashboards-disponibles",
+    "href": "index.html#dashboards-disponibles",
+    "title": "Dashboards de mortalidad en Guatemala",
+    "section": "Dashboards disponibles",
+    "text": "Dashboards disponibles\n\nEDA general de mortalidad registrada · 2009–2024: análisis temporal, demográfico, epidemiológico y territorial con mapas interactivos.\nMortalidad en Guatemala · 2009–2024: evolución anual, causas de muerte, distribución territorial y edad.\n\nLas visualizaciones muestran una instantánea de datos agregados. Los archivos originales y los datasets de procesamiento no se distribuyen con este sitio. Los resultados son descriptivos y no establecen relaciones causales."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html",
+    "href": "dashboard/01_eda_general.html",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "",
+    "text": "Pregunta general. ¿Cómo varían el volumen y la composición de las defunciones registradas en Guatemala entre 2009 y 2024, según sexo, edad, causas y departamento de residencia?\nEste reporte corresponde a la etapa exploratoria de una investigación académica basada en microdatos del Instituto Nacional de Estadística de Guatemala (INE). Su finalidad es describir patrones y formular preguntas para una investigación posterior sobre perfiles epidemiológicos territoriales y estabilidad temporal. No se entrenan modelos ni se forman conglomerados.\n\n\nSe analizan 1.323.982 registros, 1,217 enfermedades normalizadas, 19 grupos y 16 años de registro, de 2009 a 2024. Los conteos anuales y por grupo concilian con el total auditado.\n\n\n\n\nSe utiliza directamente data/processed/merge_final.parquet, consolidado y enriquecido previamente. Cada fila corresponde a un registro retenido de la fuente. Se reutilizan las definiciones de docu/diccionario_datos.md, las decisiones de docu/log_depura_causas.md y las limitaciones de reports/auditoria_eda.md. No se ejecuta ETL ni otra normalización de enfermedades.\n\nFecha: anio y mes son de registro. fecha_mes utiliza un día convencional; no es la fecha exacta de fallecimiento.\nInclusión: en cada archivo anual se retuvo el año de registro predominante coincidente con su nombre. Las inscripciones de años secundarios quedaron fuera durante la construcción previa. No se afirma exhaustividad del universo anual de defunciones ocurridas.\nSexo y edad: se usan sexo, edad y periodo_edad. Se conservan explícitamente las categorías ignoradas.\nCausas: se respetan enfermedad_normalizada y los 19 rótulos de grupo_epidemiologico. causa, bloque_nombre y sub_enfermedad_detalle permanecen disponibles en el Parquet. No se mezclan conteos de diferentes indicadores agregados.\nResidencia: se utiliza depto_res, no departamento de ocurrencia. Extranjero e ignorado se conservan en los análisis generales y se excluyen únicamente de los mapas departamentales.\n\nTodos los gráficos muestran conteos de registros o porcentajes de esos registros. No se dispone aquí de denominadores poblacionales compatibles para estimar tasas, riesgos o incidencia. Un mayor número de registros no implica mayor riesgo de fallecer.\n\n\n\nLa auditoría identifica cobertura parcial de algunas variables, edades extremas, residencia desconocida y cambios históricos de codificación. El año de ocurrencia falta en 2012–2014. Las enfermedades contienen agrupaciones manuales previas: por ejemplo, A090 incorpora A09X, A099 y K529; se documentaron también otras asignaciones y el uso residual de R99X. Las etiquetas no tienen precisión clínica uniforme. Este EDA conserva esas decisiones y no las revalida ni modifica.\nLos períodos prepandemia, pandemia y pospandemia son ventanas operativas de comparación solicitadas: 2009–2019, 2020–2021 y 2022–2024. No constituyen una atribución causal de los cambios observados."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#fuente-unidad-y-cobertura",
+    "href": "dashboard/01_eda_general.html#fuente-unidad-y-cobertura",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "",
+    "text": "Se utiliza directamente data/processed/merge_final.parquet, consolidado y enriquecido previamente. Cada fila corresponde a un registro retenido de la fuente. Se reutilizan las definiciones de docu/diccionario_datos.md, las decisiones de docu/log_depura_causas.md y las limitaciones de reports/auditoria_eda.md. No se ejecuta ETL ni otra normalización de enfermedades.\n\nFecha: anio y mes son de registro. fecha_mes utiliza un día convencional; no es la fecha exacta de fallecimiento.\nInclusión: en cada archivo anual se retuvo el año de registro predominante coincidente con su nombre. Las inscripciones de años secundarios quedaron fuera durante la construcción previa. No se afirma exhaustividad del universo anual de defunciones ocurridas.\nSexo y edad: se usan sexo, edad y periodo_edad. Se conservan explícitamente las categorías ignoradas.\nCausas: se respetan enfermedad_normalizada y los 19 rótulos de grupo_epidemiologico. causa, bloque_nombre y sub_enfermedad_detalle permanecen disponibles en el Parquet. No se mezclan conteos de diferentes indicadores agregados.\nResidencia: se utiliza depto_res, no departamento de ocurrencia. Extranjero e ignorado se conservan en los análisis generales y se excluyen únicamente de los mapas departamentales.\n\nTodos los gráficos muestran conteos de registros o porcentajes de esos registros. No se dispone aquí de denominadores poblacionales compatibles para estimar tasas, riesgos o incidencia. Un mayor número de registros no implica mayor riesgo de fallecer."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#comparabilidad-y-precisión",
+    "href": "dashboard/01_eda_general.html#comparabilidad-y-precisión",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "",
+    "text": "La auditoría identifica cobertura parcial de algunas variables, edades extremas, residencia desconocida y cambios históricos de codificación. El año de ocurrencia falta en 2012–2014. Las enfermedades contienen agrupaciones manuales previas: por ejemplo, A090 incorpora A09X, A099 y K529; se documentaron también otras asignaciones y el uso residual de R99X. Las etiquetas no tienen precisión clínica uniforme. Este EDA conserva esas decisiones y no las revalida ni modifica.\nLos períodos prepandemia, pandemia y pospandemia son ventanas operativas de comparación solicitadas: 2009–2019, 2020–2021 y 2022–2024. No constituyen una atribución causal de los cambios observados."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#sexo-y-edad",
+    "href": "dashboard/01_eda_general.html#sexo-y-edad",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "3.1 Sexo y edad",
+    "text": "3.1 Sexo y edad\n\n\n                                                \n\n\nDenominador: todos los registros; el porcentaje no estima riesgo por sexo. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\n                                                \n\n\nMenores de un año reúne días y meses; edad ignorada permanece explícita. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nLa edad se interpreta con su período: 1 = días, 2 = meses, 3 = años y 9 = ignorada. Los períodos 1 y 2 se reúnen en menores de un año, sin interpretarlos como edades en años. En la base auditada no se observan valores de 12 meses en período 2; la etiqueta de la fuente 2010 difiere al indicar “1 a 12 meses”. Los grupos en años son 1–4, 5–14, 15–24, 25–44, 45–64, 65–79 y 80 o más."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#pirámide-de-defunciones",
+    "href": "dashboard/01_eda_general.html#pirámide-de-defunciones",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "3.2 Pirámide de defunciones",
+    "text": "3.2 Pirámide de defunciones\n\n\n                                                \n\n\nFrecuencias, no pirámide de población. Edad ignorada se muestra como categoría; el signo negativo solo permite dibujar hombres a la izquierda. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nLas edades de 65 años o más suman 600.020 registros (45,32 %). Hay 8.518 edades ignoradas y 45 registros con más de 110 años en período 3; se conservan, sin corregirlos ni tratarlos como errores probados. La pirámide caracteriza defunciones, no la población expuesta.\n\n\nLos dos lados de la pirámide representan conteos positivos; el signo negativo de la representación masculina es exclusivamente gráfico. No se interpreta como una pirámide de la población guatemalteca ni como diferencias de esperanza de vida."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#composición-anual",
+    "href": "dashboard/01_eda_general.html#composición-anual",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "3.3 Composición anual",
+    "text": "3.3 Composición anual\n\n\n                                                \n\n\nDenominador: total de registros de cada año, incluidas categorías ignoradas. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\n                                                \n\n\nDenominador: total de registros de cada año, incluidas categorías ignoradas. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nCada columna usa como denominador todos los registros del año. Las categorías ignoradas permanecen visibles cuando existen. Los cambios de participación pueden deberse a cambios en el numerador, en el resto de causas o edades y en la cobertura; no prueban cambios del riesgo específico."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#distribución-y-ranking",
+    "href": "dashboard/01_eda_general.html#distribución-y-ranking",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "4.1 Distribución y ranking",
+    "text": "4.1 Distribución y ranking\n\n\n                                                \n\n\nDenominador: total acumulado; nombres de la v2 conservados sin fusionar. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\n\n\n\nGrupo epidemiológico (top 10)\nRegistros\n% del total\n\n\n\n\nEnfermedades Cardiovasculares (ENT)\n215665\n16.29\n\n\nSignos y Causas Mal Definidas\n150628\n11.38\n\n\nEnfermedades Respiratorias\n136300\n10.29\n\n\nEnfermedades No Transmisibles (Cáncer)\n129224\n9.76\n\n\nEnfermedades No Transmisibles / Metabólicas\n118789\n8.97\n\n\nEnfermedades Digestivas\n100295\n7.58\n\n\nCausas Externas (Accidentes)\n82333\n6.22\n\n\nEnfermedades Transmisibles\n68239\n5.15\n\n\nCausas Externas (Violencia / Homicidios)\n58222\n4.40\n\n\nEnfermedades Renales y Genitourinarias\n54693\n4.13\n\n\n\n\n\nEl grupo con mayor frecuencia acumulada es Enfermedades Cardiovasculares (ENT), con 215.665 registros (16,29 %). La composición anual y las medias por período permiten observar cambios relativos, pero dependen de edad, cobertura y codificación; una participación menor no implica una reducción del riesgo poblacional.\n\n\nSe mantienen los 19 grupos originales, incluidas las diferentes etiquetas de accidentes y violencia. Las diferencias de amplitud entre grupos impiden asumir que todos representan unidades clínicas del mismo nivel."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#evolución-y-composición-anual",
+    "href": "dashboard/01_eda_general.html#evolución-y-composición-anual",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "4.2 Evolución y composición anual",
+    "text": "4.2 Evolución y composición anual\n\n\n                                                \n\n\nLos diez grupos se seleccionaron por frecuencia acumulada global, manteniendo la misma selección en todos los años. Use la leyenda para aislar series. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\n                                                \n\n\nDenominador de cada participación: total anual de registros. En períodos se promedian las participaciones anuales con igual peso por año; cada columna suma 100 %. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nLas líneas permiten comparar volúmenes; el heatmap muestra porcentajes dentro de cada año para los 19 grupos. La leyenda de las líneas permite ocultar series y evitar comparaciones visuales saturadas. El color no representa tasas."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#comparación-entre-períodos",
+    "href": "dashboard/01_eda_general.html#comparación-entre-períodos",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "4.3 Comparación entre períodos",
+    "text": "4.3 Comparación entre períodos\n\n\n                                                \n\n\nDenominador de cada participación: total anual de registros. En períodos se promedian las participaciones anuales con igual peso por año; cada columna suma 100 %. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nSe calcula primero la participación de cada grupo en cada año y después su media aritmética dentro del período. Así cada año recibe el mismo peso. No se confunde esta medida con el porcentaje calculado sobre todos los registros acumulados del período. Las 19 participaciones medias suman 100 % en cada ventana."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#frecuencia-y-evolución-anual",
+    "href": "dashboard/01_eda_general.html#frecuencia-y-evolución-anual",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "5.1 Frecuencia y evolución anual",
+    "text": "5.1 Frecuencia y evolución anual\n\n\n                                                \n\n\nLos rótulos se conservan exactamente como están en el merge; incluyen categorías generales de precisión desigual. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nLa etiqueta más frecuente es Infarto agudo del miocardio (98.067). El top veinte reúne 58,97 % del total. Categorías como R99X y otras etiquetas generales no tienen la misma precisión que un diagnóstico específico; no se fusionaron nombres similares ni se revalidaron las equivalencias clínicas.\n\n\n                                                \n\n\nSelección fija según frecuencia acumulada global. Cada celda cuenta registros; cero indica que esa etiqueta no aparece en la base filtrada. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nEl top veinte y la selección fija de diez enfermedades usan el nombre exacto almacenado en enfermedad_normalizada. No se fusionan nombres similares. La aparición de una etiqueta nueva puede relacionarse con cambios de clasificación; una celda cero no demuestra ausencia clínica en la población."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#comparación-entre-hombres-y-mujeres",
+    "href": "dashboard/01_eda_general.html#comparación-entre-hombres-y-mujeres",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "5.2 Comparación entre hombres y mujeres",
+    "text": "5.2 Comparación entre hombres y mujeres\n\n\n                                                \n\n\nDenominador: total del sexo correspondiente, no el total de cada enfermedad. La selección es el top diez global. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nLos porcentajes se calculan dentro de cada sexo, para evitar que el distinto tamaño de sus totales determine por sí solo la comparación. Las estructuras etarias de ambos grupos no se ajustan; la comparación es descriptiva de las defunciones registradas."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#comparación-por-grandes-grupos-etarios",
+    "href": "dashboard/01_eda_general.html#comparación-por-grandes-grupos-etarios",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "5.3 Comparación por grandes grupos etarios",
+    "text": "5.3 Comparación por grandes grupos etarios\n\n\n                                                \n\n\nSelección: unión de las cinco enfermedades más frecuentes dentro de cada grupo etario. Denominador: todos los registros de ese grupo, incluida edad ignorada en su propia columna. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\n\n\n\nGrupo etario\nEnfermedad (top 3 de cada grupo)\nRegistros\n% del grupo etario\n\n\n\n\n65+\nInfarto agudo del miocardio\n71181\n11.86\n\n\n65+\nNeumonía, organismo no especificado\n48852\n8.14\n\n\n65+\nDiabetes mellitus, no especificada\n40653\n6.78\n\n\n15–44\nAgresión con disparo de otras armas de fuego, y las no especificadas\n38852\n14.71\n\n\n45–64\nDiabetes mellitus, no especificada\n28483\n10.18\n\n\n15–44\nExposición a factores no especificados\n23085\n8.74\n\n\n45–64\nInfarto agudo del miocardio\n18947\n6.77\n\n\n45–64\nFibrosis y cirrosis del hígado\n16839\n6.02\n\n\n&lt;1 año\nNeumonía, organismo no especificado\n16709\n15.00\n\n\n15–44\nAccidente de vehículo de motor o sin motor, tipo de vehículo no especificado\n14227\n5.39\n\n\n1–14\nNeumonía, organismo no especificado\n10083\n16.77\n\n\n1–14\nOtras gastroenteritis y colitis de origen infeccioso y no especificado\n8573\n14.26\n\n\n&lt;1 año\nSepsis bacteriana del recién nacido\n7826\n7.03\n\n\n&lt;1 año\nDificultad respiratoria del recién nacido\n7617\n6.84\n\n\n1–14\nExposición a factores no especificados\n2612\n4.35\n\n\nIgnorada\nNeumonía, organismo no especificado\n901\n10.58\n\n\nIgnorada\nExposición a factores no especificados\n498\n5.85\n\n\nIgnorada\nMuerte sin asistencia\n437\n5.13\n\n\n\n\n\nEl heatmap usa la unión de las cinco enfermedades principales de cada grupo etario, de modo que las afecciones infantiles puedan aparecer aunque no pertenezcan al top global. Cada columna usa todos los registros de su grupo etario como denominador, no solo las enfermedades mostradas. La categoría Ignorada se conserva y no se distribuye entre otras edades."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#composición-por-período",
+    "href": "dashboard/01_eda_general.html#composición-por-período",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "5.4 Composición por período",
+    "text": "5.4 Composición por período\n\n\n                                                \n\n\nDenominador: total anual de registros, antes de promediar los porcentajes por período. Se muestran quince etiquetas; las columnas mostradas no suman 100 %. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nSe muestran quince enfermedades globalmente frecuentes. Las celdas representan la media de sus porcentajes anuales, con igual peso por año. Las columnas no suman 100 % porque la selección no incluye todas las enfermedades. Los cambios pueden combinar variación del registro, estructura demográfica y codificación; no permiten atribuir mecanismos clínicos ni causas externas a la serie."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#cobertura-geográfica-y-tabla-departamental",
+    "href": "dashboard/01_eda_general.html#cobertura-geográfica-y-tabla-departamental",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "7.1 Cobertura geográfica y tabla departamental",
+    "text": "7.1 Cobertura geográfica y tabla departamental\nSe reutiliza data/geo/departamentos_guatemala.geojson, derivado previamente de deptos.json del repositorio minfin-bi/Mapas-TopoJSON-Guatemala. Se verifican las 22 geometrías y la correspondencia de códigos y nombres documentada: el identificador original dividido entre 100 corresponde a depto_res. No se descargan ni reconstruyen límites.\n\n\nLos mapas incluyen 1.226.152 registros de los 22 departamentos. Se excluyen solo de las visualizaciones geográficas 97.830 (7,39 %) con residencia extranjera o ignorada, que permanecen en los análisis generales. Los conteos territoriales dependen del tamaño y composición poblacional; las proporciones describen únicamente las defunciones registradas en cada departamento.\n\n\n\n\n\nCódigo excluido del mapa\nResidencia\nRegistros\n% del total general\n\n\n\n\n23\nExtranjero\n2378\n0.18\n\n\n99\nIgnorado\n95452\n7.21\n\n\n\n\n\n\n\n\nCódigo\nDepartamento de residencia\nRegistros\nCardiovasculares (% del departamento)\nMal definidas (% del departamento)\n\n\n\n\n1\nGuatemala\n312967\n17.44\n8.85\n\n\n2\nEl Progreso\n17327\n27.72\n5.36\n\n\n3\nSacatepéquez\n28360\n16.96\n8.42\n\n\n4\nChimaltenango\n46654\n17.87\n6.74\n\n\n5\nEscuintla\n71787\n14.98\n14.00\n\n\n6\nSanta Rosa\n35139\n21.81\n11.82\n\n\n7\nSololá\n29883\n11.97\n14.98\n\n\n8\nTotonicapán\n38614\n10.52\n27.47\n\n\n9\nQuetzaltenango\n71180\n16.45\n10.01\n\n\n10\nSuchitepéquez\n49151\n7.87\n39.15\n\n\n11\nRetalhuleu\n29359\n10.13\n32.20\n\n\n12\nSan Marcos\n77654\n17.51\n8.98\n\n\n13\nHuehuetenango\n68353\n18.34\n5.22\n\n\n14\nQuiché\n63155\n11.80\n19.84\n\n\n15\nBaja Verapaz\n21241\n24.87\n6.50\n\n\n16\nAlta Verapaz\n72419\n13.26\n3.69\n\n\n17\nPetén\n32398\n14.40\n10.52\n\n\n18\nIzabal\n33363\n22.12\n9.74\n\n\n19\nZacapa\n23951\n28.69\n3.53\n\n\n20\nChiquimula\n32738\n25.20\n5.36\n\n\n21\nJalapa\n26919\n20.25\n14.88\n\n\n22\nJutiapa\n43540\n31.37\n4.97"
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#composición-por-grupos-epidemiológicos",
+    "href": "dashboard/01_eda_general.html#composición-por-grupos-epidemiológicos",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "7.2 Composición por grupos epidemiológicos",
+    "text": "7.2 Composición por grupos epidemiológicos\n\n\n                                                \n\n\nDenominador: todos los registros del departamento de residencia correspondiente. Los diez grupos son los principales a escala global; las filas mostradas pueden sumar menos de 100 %. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nLos porcentajes usan como denominador el total de defunciones registradas del departamento, incluidas sus causas mal definidas. El tamaño poblacional, la composición por edad y el registro de residencia no se ajustan; el patrón de color no constituye una comparación de tasas."
+  },
+  {
+    "objectID": "dashboard/01_eda_general.html#mapas-interactivos",
+    "href": "dashboard/01_eda_general.html#mapas-interactivos",
+    "title": "Mortalidad registrada en Guatemala: EDA 2009–2024",
+    "section": "7.3 Mapas interactivos",
+    "text": "7.3 Mapas interactivos\n\n\n                                                \n\n\nSolo códigos 1–22. Fondo vacío y polígonos locales, sin teselas ni servidor Python. El indicador porcentual usa como denominador los registros del mismo departamento. No son tasas. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\n                                                \n\n\nSolo códigos 1–22. Fondo vacío y polígonos locales, sin teselas ni servidor Python. El indicador porcentual usa como denominador los registros del mismo departamento. No son tasas. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\n                                                \n\n\nSolo códigos 1–22. Fondo vacío y polígonos locales, sin teselas ni servidor Python. El indicador porcentual usa como denominador los registros del mismo departamento. No son tasas. Fuente: microdatos INE, merge depurado 2009–2024. Año de registro. Conteos o participaciones; no tasas.\n\n\nLos tres mapas incluyen únicamente códigos 1–22. Sus tooltips muestran el departamento, código, conteo departamental e indicador; los mapas porcentuales incluyen también el conteo del grupo correspondiente. El fondo vacío evita solicitudes de teselas o mapas externos. La interacción de Plotly/MapLibre se ejecuta en el navegador y requiere soporte WebGL, pero no un servidor Python.\nEl mapa de conteos es sensible al tamaño poblacional y la cobertura. Los otros dos mapas describen composición interna de las defunciones registradas, no riesgo cardiovascular ni tasas de causas mal definidas en la población. No se redistribuyen extranjero e ignorado.\nLa documentación de data/geo/README.md advierte que la fuente geográfica no declara una licencia explícita; la autorización de redistribución debe confirmarse antes de una publicación pública. Este trabajo prepara el HTML local y no realiza publicación ni configura GitHub Pages."
+  }
+]
